@@ -16,12 +16,35 @@
     /* background-color: #212121; */
     width: 90rem;
 }
+/* header nav {
+    position: sticky;
+} */
 
 header nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
     gap: 4rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+}
+
+header nav a {
+    font-family: "Inter";
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+header nav a:hover {
+    text-decoration: underline;
+    color: #FFB4B4;
 }
 
 h1 {
@@ -64,6 +87,10 @@ img {
     margin-bottom: 2rem;
 }
 
+section {
+    scroll-margin-top: 3rem;
+}
+
 
 /* .intro {
     width: 890px;
@@ -88,40 +115,105 @@ img {
     background: #5D5D5D;
 }
 
+#tiktok-artist-trophy h2{
+    background: #5D5D5D;
+}
+
+#tiktok-artist-trophy .content{
+    background: #5D5D5D;
+    margin-top: 2rem;
+}
+
 .tiktok-trophy {
     display: flex;
     justify-content: center;
     /* align-items: center; */
     gap: 4.375rem;
+    background: #5D5D5D;
 }
 
 .tiktok-trophy h1 {
     width: auto;
+    background: #5D5D5D;
 }
 
 .tiktok-trophy h2 {
     width: auto;
     margin-bottom: 1rem;
+    background: #5D5D5D;
 }
 
 .tiktok-trophy img {
     /* padding-top: 1rem;
     padding-bottom: 1rem; */
     margin-top: 1rem;
-    margin-bottom: 1rem;}
-
+    margin-bottom: 1rem;
+    background: #5D5D5D;
+}
 
 .artist {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: #5D5D5D;
 }
 
 .artist img {
     width: 250px;
     height: 250px;
     background: white;
-
 }
 
+
+#tiktok-shot {
+    margin-top: 15rem;
+    margin-bottom: 15rem;
+}
+
+.shots-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+}
+
+.shot {
+    display: flex;
+    align-items: flex-end;
+    background-color: #FFFFFF;
+    height: 30.1875rem;
+    width: 254px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+footer {
+    background-color: white;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.footer-content {
+    background-color: white;
+    width: 55.6875rem;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    /* margin-bottom: 10rem; */
+}
+
+.footer-content p {
+    background-color: white;
+    color: #FFB4B4;
+    font-family: "Inter";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 1rem;
+    padding-bottom: 0rem;
+    
+}
 
