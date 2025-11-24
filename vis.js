@@ -38,12 +38,19 @@ fetchData().then(async (data) => {
     // visualization 3
 
     // visualization 4
+    const filteredSpotifyTiktok = data
+        .filter(d => d["Spotify Streams"])
+        .sort((a, b) => d3.descending(+a["Spotify Streams"], +b["Spotify Streams"]))
+        .slice(0, 30);
+
+
     const vlSpec4 = vl
         .markCircle()
-        .data(data
-            .filter(d =>  d["Spotify Streams"])
-            .sort((a, b) => d3.descending(+a["Spotify Streams"], +b["Spotify Streams"]))
-            .slice(0, 30)).title("Top 30 most popular Spotify Songs vs TikTok Posts, with release date")
+        // .data(data
+        //     .filter(d =>  d["Spotify Streams"])
+        //     .sort((a, b) => d3.descending(+a["Spotify Streams"], +b["Spotify Streams"]))
+        //     .slice(0, 30)).title("Top 30 most popular Spotify Songs vs TikTok Posts, with release date")
+        .data(filteredSpotifyTiktok)
         .encode(
             vl.x().fieldT("Release Date").title("Release Date"),
             vl.y().fieldQ("Spotify Streams"),
@@ -58,6 +65,7 @@ fetchData().then(async (data) => {
         )
         .width(800)
         .height(500)
+        .title("Top 30 most popular Spotify Songs vs TikTok Posts, with release date")
         .toSpec();
 
 
