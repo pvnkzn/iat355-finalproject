@@ -42,7 +42,7 @@ fetchData().then(async (data) => {
         .markCircle()
         .data(data
             .filter(d =>  d["Spotify Streams"])
-            .sort((a, b) => d3.descending(a["Spotify Streams"], b["Spotify Streams"]))
+            .sort((a, b) => d3.descending(+a["Spotify Streams"], +b["Spotify Streams"]))
             .slice(0, 30)).title("Top 30 most popular Spotify Songs vs TikTok Posts, with release date")
         .encode(
             vl.x().fieldT("Release Date").title("Release Date"),
@@ -56,6 +56,8 @@ fetchData().then(async (data) => {
                 ]
             )
         )
+        .width(800)
+        .height(500)
         .toSpec();
 
 
