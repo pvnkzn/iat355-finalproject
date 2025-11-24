@@ -116,7 +116,7 @@ section {
     /* width: 890px; */
 }
 
-.vg-tooltip .vg-tooltip-content {
+#vg-tooltip-element {
     background-color: #FFFFFF !important;
     color: black !important;
 }
