@@ -38,10 +38,32 @@ fetchData().then(async (data) => {
     // visualization 3
 
     // visualization 4
+    const vlSpec4 = vl
+        .markCircle()
+        .data(data
+            .filter(d =>  d["Spotify Streams"])
+            .sort((a, b) => d3.descending(a["Spotify Streams"], b["Spotify Streams"]))
+            .slice(0, 30)).title("Top 30 most popular Spotify Songs vs TikTok Posts, with release date")
+        .encode(
+            vl.x().fieldT("Release Date").title("Release Date"),
+            vl.y().fieldQ("Spotify Streams"),
+            vl.color().fieldN("Track").legend(null),
+            vl.size().fieldQ("TikTok Posts"),
+            vl.tooltip(
+                [
+                    vl.fieldN("Track"),
+                    vl.fieldN("Artist")
+                ]
+            )
+        )
+        .toSpec();
 
-    
+
+
     //render
     render("#view", vlSpec);
+    render("#view4", vlSpec4);
+
 });
 
 async function render(viewID, spec) {

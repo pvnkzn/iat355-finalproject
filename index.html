@@ -24,7 +24,7 @@
             },
             init: (view) => {
             // initialize tooltip handler
-            view.tooltip(new vegaTooltip.Handler().call);
+            view.tooltip(new vegaTooltip.Handler({theme: "dark"}).call);
             },
             view: {
             // view constructor options
@@ -71,10 +71,10 @@
         <section id="vis-1">
             <div class="content">
                 <h1>Here's a hint: Its less than you think.</h1>
-                <img src="img/vis-1.png" alt="Visualization showing Spotify and TikTok Popularity of Popular Pop Artists' Songs">
+                <!-- <img src="img/vis-1.png" alt="Visualization showing Spotify and TikTok Popularity of Popular Pop Artists' Songs"> -->
 
 
-                <!-- vega-lite here -->
+                <!-- vega-lite vis 1 -->
 
                 <div class="vegalite-container">
                     <div id="view"></div>
@@ -109,7 +109,18 @@
         <section id="vis-2-3">
             <div class="content">
                 <img src="img/top-30-tiktok-songs.png" alt="Placeholder for vis 2">
+                
+                <!-- vega-lite vis 2 -->
+                <div class="vegalite-container">
+                    <div id="view2"></div>
+                </div>
                 <img src="img/spotify-song-tiktok-post.png" alt="Placeholder for vis 3">
+
+                <!-- vega-lite vis 1 -->
+                <div class="vegalite-container">
+                    <div id="view3"></div>
+                </div>
+
                 <p>You can see that most artists tend to be one hit wonders on social media, but there are some big name outliers Like Chappell Roan, Billie Eilish, etc.</p>
                 <p>You can see that most artists tend to be one hit wonders on social media, but there are some big name outliers Like Chappell Roan, Billie Eilish, etc.</p>
             </div>
@@ -126,6 +137,11 @@
         <section id="vis-4">
             <div class="content">
                 <img src="img/vis-4.png" alt="Visualization showing Billie Eilish song streams">
+                <!-- vega-lite vis 4 -->
+                 <div class="vegalite-container">
+                    <div id="view4"></div>
+                </div>
+
                 <p>Artists gaining a healthy following on social media tend to have stable amounts of listeners on streaming platforms.</p>
             </div>
         </section>

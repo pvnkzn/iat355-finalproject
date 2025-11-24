@@ -106,6 +106,9 @@ section {
 
 /* vegalite styling */
 .vegalite-container {
+    display: flex;
+    justify-content: center;
+    
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin-top: 2rem;
