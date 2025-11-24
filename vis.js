@@ -37,16 +37,16 @@ fetchData().then(async (data) => {
     const filteredSpotify = data
         .filter(d => d["Spotify Streams"])
         .sort((a, b) => d3.descending(+a["Spotify Streams"], +b["Spotify Streams"]))
-        .slice(0, 30);
-        // .flatMap(d => [
-        //     { 
-        //         Track: d["Track"], 
-        //         Artist: d["Artist"], 
-        //         Metric: "Spotify Streams", 
-        //         Value: d["Spotify Streams"], 
-        //         "Spotify Streams": d["Spotify Streams"]
-        //     }
-        // ]);
+        .slice(0, 30)
+        .flatMap(d => [
+            { 
+                Track: d["Track"], 
+                Artist: d["Artist"], 
+                Metric: "Spotify Streams", 
+                Value: +d["Spotify Streams"], 
+                "Spotify Streams": +d["Spotify Streams"]
+            }
+        ]);
         
 
     const vlSpec2 = vl
