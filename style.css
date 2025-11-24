@@ -1,3 +1,5 @@
+/* general styling */
+
 * {
     background-color: #212121; 
 }
@@ -101,6 +103,22 @@ section {
     align-items: center;
     border: 1px solid #ccc;
 } */
+
+/* vegalite styling */
+.vegalite-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    max-width: 55rem;
+    width: 890px;
+}
+
+.vg-tooltip {
+    background-color: #FFFFFF;
+}
+
+/* content styling */
 
 .content {
     width: 55.6875rem;
