@@ -48,7 +48,6 @@ fetchData().then(async (data) => {
             }
         ));
         
-
     const vlSpec2 = vl
         .markBar()
         .data(filteredSpotify)
@@ -57,9 +56,6 @@ fetchData().then(async (data) => {
             vl.x().fieldQ("Value").title("Views / Streams"),
             vl.color().fieldN("Artist").title("Artist"),
             vl.tooltip([
-                // {field: "Artist", type: "nominal"},
-                // {field: "Track", type: "nominal"},
-                // {field: "Spotify Streams", type: "quantitative"},
                 vl.fieldN("Artist"),
                 vl.fieldN("Track"),
                 vl.fieldQ("Spotify Streams")
@@ -70,8 +66,38 @@ fetchData().then(async (data) => {
         .title("Top 30 Most Streamed Spotify Songs")
         .toSpec();
 
-
     // visualization 3
+    const filteredTiktok = data
+        .filter(d => d["TikTok Posts"])
+        .sort((a, b) => d3.descending(+a["TikTok Posts"], +b["TikTok Posts"]))
+        .slice(0, 30)
+        .map(d => (
+            { 
+                Track: d["Track"], 
+                Artist: d["Artist"], 
+                Metric: "TikTok Posts", 
+                Value: +d["TikTok Posts"], 
+                "TikTok Posts": +d["TikTok Posts"]
+            }
+        ));
+
+    const vlSpec3 = vl
+        .markBar()
+        .data(filteredTiktok)
+        .encode(
+            vl.y().fieldN("Track").sort("-x").title("Track Title"),
+            vl.x().fieldQ("Value").title("Posts"),
+            vl.color().fieldN("Artist").title("Artist"),
+            vl.tooltip([
+                vl.fieldN("Artist"),
+                vl.fieldN("Track"),
+                vl.fieldQ("TikTok Posts")
+            ])
+        )
+        .width(800)
+        .height(400)
+        .title("Top 30 Most Posted TikTok Songs")
+        .toSpec();
 
     // visualization 4
     const filteredSpotifyTiktok = data
@@ -101,10 +127,10 @@ fetchData().then(async (data) => {
         .toSpec();
 
 
-
     //render
     render("#view", vlSpec);
     render("#view2", vlSpec2);
+    render("#view3", vlSpec3);
     render("#view4", vlSpec4);
 
 });
