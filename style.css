@@ -117,7 +117,8 @@ section {
 }
 
 .vg-tooltip {
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
+    color: white;
 }
 
 /* content styling */
