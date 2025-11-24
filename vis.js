@@ -38,7 +38,7 @@ fetchData().then(async (data) => {
         .filter(d => d["Spotify Streams"])
         .sort((a, b) => d3.descending(+a["Spotify Streams"], +b["Spotify Streams"]))
         .slice(0, 30)
-        .flatMap(d => [
+        .map(d => [
             { 
                 Track: d["Track"], 
                 Artist: d["Artist"], 
