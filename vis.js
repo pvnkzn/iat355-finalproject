@@ -34,6 +34,38 @@ fetchData().then(async (data) => {
         .toSpec();
 
     // visualization 2
+    const filteredSpotify = data
+        .filter(d => d["Spotify Streams"])
+        .sort((a, b) => d3.descending(+a["Spotify Streams"], +b["Spotify Streams"]))
+        .slice(0, 30)
+        .flatMap(d => [
+            { 
+                Track: d["Track"], 
+                Artist: d["Artist"], 
+                Metric: "Spotify Streams", 
+                Value: d["Spotify Streams"], 
+                "Spotify Streams": d["Spotify Streams"]
+            }
+        ]);
+
+    const vlSpec2 = vl
+        .markBar()
+        .data(filteredSpotify)
+        .encode(
+            vl.y().fieldN("Track").sort("-x").title("Track Title"),
+            vl.x().fieldQ("Value").title("Views / Streams"),
+            vl.color().fieldN("Artist").title("Artist"),
+            vl.tooltip([
+            {field: "Artist", type: "nominal"},
+            {field: "Track", type: "nominal"},
+            {field: "Spotify Streams", type: "quantitative"},
+            ])
+        )
+        .width(800)
+        .height(400)
+        .title("Top 30 Most Streamed Spotify Songs")
+        .toSpec();
+
 
     // visualization 3
 
@@ -46,10 +78,6 @@ fetchData().then(async (data) => {
 
     const vlSpec4 = vl
         .markCircle()
-        // .data(data
-        //     .filter(d =>  d["Spotify Streams"])
-        //     .sort((a, b) => d3.descending(+a["Spotify Streams"], +b["Spotify Streams"]))
-        //     .slice(0, 30)).title("Top 30 most popular Spotify Songs vs TikTok Posts, with release date")
         .data(filteredSpotifyTiktok)
         .encode(
             vl.x().fieldT("Release Date").title("Release Date"),
@@ -72,6 +100,7 @@ fetchData().then(async (data) => {
 
     //render
     render("#view", vlSpec);
+    render("#view2", vlSpec2);
     render("#view4", vlSpec4);
 
 });
