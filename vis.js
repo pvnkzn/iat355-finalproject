@@ -57,9 +57,12 @@ fetchData().then(async (data) => {
             vl.x().fieldQ("Value").title("Views / Streams"),
             vl.color().fieldN("Artist").title("Artist"),
             vl.tooltip([
-                {field: "Artist", type: "nominal"},
-                {field: "Track", type: "nominal"},
-                {field: "Spotify Streams", type: "quantitative"},
+                // {field: "Artist", type: "nominal"},
+                // {field: "Track", type: "nominal"},
+                // {field: "Spotify Streams", type: "quantitative"},
+                vl.fieldN("Artist"),
+                vl.fieldN("Track"),
+                vl.fieldQ("Spotify Streams")
             ])
         )
         .width(800)
