@@ -68,7 +68,7 @@ h2 {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     margin-top: 1rem;
     width: 55.6875rem;
 }
@@ -209,6 +209,12 @@ section {
 }
 
 #vis-1 {
+    background: #D8EA75;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+#vis-1 > * {
     background: #D8EA75;
 }
 
