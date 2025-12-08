@@ -46,7 +46,7 @@ header nav a {
 
 header nav a:hover {
     text-decoration: underline;
-    color: #FFB4B4;
+    color: #5BE3C3;
 }
 
 h1 {
@@ -165,17 +165,21 @@ section {
 .title-image img {
     width: 33.5rem;
     border: 10px solid #D8EA75;
+    justify-content: center;
 }
 
 .title-image  {
     /* border: 10px solid #D8EA75; */
     width: 33.5rem;
+    justify-content: center;
+    align-items: center;
 }
 
-.down-arrow img {
+.down-arrow {
     width: 6.25rem;
     height: 6.25rem;
     justify-content: center;
+    align-items: center;
 }
 
 .group-name h4 {
