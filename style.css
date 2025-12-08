@@ -214,8 +214,8 @@ section {
     margin-bottom: 5rem;
 }
 
-#vis-1 > * {
-    background: #D8EA75;
+#vis-1 .content-2 {
+    background: transparent;
 }
 
 #tiktok-artist-trophy {
