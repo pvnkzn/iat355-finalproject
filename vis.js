@@ -7,33 +7,54 @@ async function fetchData() {
 fetchData().then(async (data) => {
 
     // visualization 1 OLD
-    const vlSpec = vl
-        .markCircle()
-            .data(data)
-            .transform(
-                // filtering some popular artists
-                {filter: {field: "Artist", oneOf: ["Dua Lipa", "Ariana Grande", "Taylor Swift", "Bruno Mars", "Shawn Mendes", "Justin Bieber", "Rihanna"]}}
-            )
-            .encode(
-                vl.x().fieldT("Release Date"),
-                vl.y().fieldQ("TikTok Views"),
-                vl.size().fieldQ("Spotify Streams"),
-                vl.color().fieldN("Artist"),
-                vl.tooltip(
-                    [
-                        {field: "Track"},
-                        {field: "Artist"},
-                        {field: "Spotify Streams"},
-                        {field: "TikTok Views"}
-                    ]
-                )
-            )
-        .title("Spotify and TikTok Popularity of Popular Pop Artists' Songs")
-        .width(800)
-        .height(500)
-        .toSpec();
+    // const vlSpec = vl
+    //     .markCircle()
+    //         .data(data)
+    //         .transform(
+    //             // filtering some popular artists
+    //             {filter: {field: "Artist", oneOf: ["Dua Lipa", "Ariana Grande", "Taylor Swift", "Bruno Mars", "Shawn Mendes", "Justin Bieber", "Rihanna"]}}
+    //         )
+    //         .encode(
+    //             vl.x().fieldT("Release Date"),
+    //             vl.y().fieldQ("TikTok Views"),
+    //             vl.size().fieldQ("Spotify Streams"),
+    //             vl.color().fieldN("Artist"),
+    //             vl.tooltip(
+    //                 [
+    //                     {field: "Track"},
+    //                     {field: "Artist"},
+    //                     {field: "Spotify Streams"},
+    //                     {field: "TikTok Views"}
+    //                 ]
+    //             )
+    //         )
+    //     .title("Spotify and TikTok Popularity of Popular Pop Artists' Songs")
+    //     .width(800)
+    //     .height(500)
+    //     .toSpec();
 
     // visualization 1 NEW
+    const filteredSpotifySongsTiktokViews = data
+        .filter(d => d["TikTok Views"])
+        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
+        .slice(0, 30)
+        .title("Top 30 most popular Spotify Songs vs TikTok Views, with release date")
+
+    const vlSpec = v1
+        .markCircle()
+        .data(filteredSpotifySongsTiktokViews)
+        .encode(
+            vl.x().fieldQ("TikTok Views").title("TikTok Views"),
+            vl.y().fieldQ("Spotify Streams"),
+            vl.color().fieldN("Track"),
+            vl.tooltip(
+                [
+                    vl.fieldN("Track"),
+                    vl.fieldN("Artist")
+                ]
+            ))
+        .toSpec();
+        
 
     // visualization 2
     const filteredSpotify = data
