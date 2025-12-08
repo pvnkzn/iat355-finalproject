@@ -53,6 +53,8 @@ fetchData().then(async (data) => {
                     vl.fieldN("Artist")
                 ]
             ))
+        .width(600)
+        .height(400)
         .toSpec();
         
 
