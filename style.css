@@ -1,11 +1,11 @@
 /* general styling */
 
-* {
+/* * {
     background-color: #212121; 
-}
+} */
 
 .body {
-    /* background-color: #212121; */
+    background-color: #212121;
     width: 90rem;
 }
 
