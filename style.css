@@ -175,6 +175,11 @@ section {
     margin-bottom: 10rem;
 }
 
+.content-2 h2 {
+    color: #212121;
+    background-color: #D8EA75;
+}
+
 
 .title-image img {
     width: 33.5rem;
@@ -224,8 +229,6 @@ section {
 }
 #vis-1 .vegalite-container {
     background: #D8EA75;
-    margin: 0;
-    padding: 0;
 }
 
 #tiktok-artist-trophy {
