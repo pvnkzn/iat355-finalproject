@@ -59,38 +59,96 @@ fetchData().then(async (data) => {
         .toSpec();
         
 
-    // visualization 2
-    const filteredSpotify = data
-        .filter(d => d["Spotify Streams"])
-        .sort((a, b) => d3.descending(+a["Spotify Streams"], +b["Spotify Streams"]))
-        .slice(0, 30)
-        .map(d => (
+    // visualization 2 OLD
+    // const filteredSpotify = data
+    //     .filter(d => d["Spotify Streams"])
+    //     .sort((a, b) => d3.descending(+a["Spotify Streams"], +b["Spotify Streams"]))
+    //     .slice(0, 30)
+    //     .map(d => (
+    //         { 
+    //             Track: d["Track"], 
+    //             Artist: d["Artist"], 
+    //             Metric: "Spotify Streams", 
+    //             Value: +d["Spotify Streams"], 
+    //             "Spotify Streams": +d["Spotify Streams"]
+    //         }
+    //     ));
+        
+    // const vlSpec2 = vl
+    //     .markBar()
+    //     .data(filteredSpotify)
+    //     .encode(
+    //         vl.y().fieldN("Track").sort("-x").title("Track Title"),
+    //         vl.x().fieldQ("Value").title("Views / Streams"),
+    //         vl.color().fieldN("Artist").title("Artist"),
+    //         vl.tooltip([
+    //             vl.fieldN("Artist"),
+    //             vl.fieldN("Track"),
+    //             vl.fieldQ("Spotify Streams")
+    //         ])
+    //     )
+    //     .width(800)
+    //     .height(400)
+    //     .title("Top 30 Most Streamed Spotify Songs")
+    //     .toSpec();
+
+    // visualization 2 NEW
+    const viralSongs = data
+        .filter(d => d["TikTok Views"] && d["Spotify Streams"] && d["YouTube Views"])
+        .sort((a, b) => d3.descending(a["TikTok Views"], b["TikTok Views"]))
+        .slice(0, 20)
+        .map(d => [
+            { 
+                Track: d["Track"], 
+                Artist: d["Artist"], 
+                Metric: "TikTok Views", 
+                Value: d["TikTok Views"], 
+                "TikTok Views": d["TikTok Views"], 
+                "Spotify Streams": d["Spotify Streams"],
+                "YouTube Views": d["YouTube Views"]
+            },
             { 
                 Track: d["Track"], 
                 Artist: d["Artist"], 
                 Metric: "Spotify Streams", 
-                Value: +d["Spotify Streams"], 
-                "Spotify Streams": +d["Spotify Streams"]
+                Value: d["Spotify Streams"], 
+                "TikTok Views": d["TikTok Views"], 
+                "Spotify Streams": d["Spotify Streams"],
+                "YouTube Views": d["YouTube Views"]
+            },
+            { 
+                Track: d["Track"], 
+                Artist: d["Artist"], 
+                Metric: "YouTube Views", 
+                Value: d["YouTube Views"], 
+                "TikTok Views": d["TikTok Views"], 
+                "Spotify Streams": d["Spotify Streams"],
+                "YouTube Views": d["YouTube Views"]
             }
-        ));
-        
+        ]);
+
     const vlSpec2 = vl
         .markBar()
-        .data(filteredSpotify)
+        .data(viralSongs)
         .encode(
             vl.y().fieldN("Track").sort("-x").title("Track Title"),
             vl.x().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Artist").title("Artist"),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
             vl.tooltip([
-                vl.fieldN("Artist"),
-                vl.fieldN("Track"),
-                vl.fieldQ("Spotify Streams")
+                {field: "Artist", type: "nominal"},
+                {field: "Track", type: "nominal"},
+                {field: "TikTok Views", type: "quantitative"},
+                {field: "Spotify Streams", type: "quantitative"},
+                {field: "YouTube Views", type: "quantitative"}
             ])
         )
         .width(800)
         .height(400)
-        .title("Top 30 Most Streamed Spotify Songs")
+        .title("Top 20 Most Viral Songs on Tiktok Compared with Spotify Streams")
         .toSpec();
+
+    
+
 
     // visualization 3
     const filteredTiktok = data
