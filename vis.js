@@ -6,7 +6,7 @@ async function fetchData() {
 
 fetchData().then(async (data) => {
 
-    // visualization 1
+    // visualization 1 OLD
     const vlSpec = vl
         .markCircle()
             .data(data)
@@ -32,6 +32,8 @@ fetchData().then(async (data) => {
         .width(800)
         .height(500)
         .toSpec();
+
+    // visualization 1 NEW
 
     // visualization 2
     const filteredSpotify = data

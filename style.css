@@ -35,9 +35,9 @@ header nav ul {
 
 header nav a {
     font-family: "Inter";
-    color: #FFFFFF;
+    color: #F3FACE;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -50,7 +50,7 @@ header nav a:hover {
 }
 
 h1 {
-    color: #FFFFFF;
+    color: #D8EA75;
     text-align: center;
     font-family: "IBM Plex Mono", monospace;
     font-size: 3rem;
@@ -61,7 +61,7 @@ h1 {
 }
 
 h2 {
-    color: #FFF;
+    color: #D8EA75;
     text-align: center;
     font-family: "IBM Plex Mono", monospace;
     font-size: 1.5rem;
@@ -73,7 +73,7 @@ h2 {
 }
 
 p {
-    color: #FFF;
+    color: #F3FACE;
     font-family: "Inter";
     font-size: 1.5rem;
     font-style: normal;
@@ -130,8 +130,22 @@ section {
     margin-bottom: 10rem;
 }
 
+.title-image {
+    width: 33.5rem;
+}
+
+.down-arrow {
+    width: 6.25rem;
+    height: 6.25rem;
+}
+
 .group-name p {
     text-align: center;
+}
+
+.highlight {
+    font-weight: 600;
+    color: #5BE3C3;
 }
 
 #tiktok-artist-trophy {
