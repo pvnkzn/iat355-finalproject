@@ -218,6 +218,16 @@ section {
     background: transparent;
 }
 
+#vis-1 .h2 {
+    color: #212121;
+    background-color: #D8EA75;
+}
+#vis-1 .vegalite-container {
+    background: #D8EA75;
+    margin: 0;
+    padding: 0;
+}
+
 #tiktok-artist-trophy {
     background: #5D5D5D;
 }
