@@ -38,7 +38,7 @@ fetchData().then(async (data) => {
         .filter(d => d["TikTok Views"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 30)
-        .title("Top 30 most popular Spotify Songs vs TikTok Views, with release date")
+        .title("Top 30 most popular Spotify Songs vs TikTok Views, with release date");
 
     const vlSpec = v1
         .markCircle()
