@@ -155,12 +155,24 @@ section {
     margin-bottom: 10rem;
 }
 
-.content-2 {
+/* .content-2 {
     width: 55.6875rem;
     justify-content: center;
     margin: 0 auto;
     margin-bottom: 10rem;
     background-color: #D8EA75;
+} */
+
+.content-2 {
+    width: 100%;
+    background-color: #D8EA75;
+}
+
+.content-2 > * {
+    width: 55.6875rem;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 10rem;
 }
 
 
