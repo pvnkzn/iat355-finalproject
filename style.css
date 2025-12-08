@@ -57,7 +57,7 @@ h1 {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    width: 55.6875rem;
+    width: 59.5625rem;
 }
 
 h2 {
@@ -167,9 +167,10 @@ section {
     border: 10px solid #D8EA75;
 }
 
-/* .title-image  {
-    border: 10px solid #D8EA75;
-} */
+.title-image  {
+    /* border: 10px solid #D8EA75; */
+    width: 33.5rem;
+}
 
 .down-arrow img {
     width: 6.25rem;
