@@ -37,8 +37,7 @@ fetchData().then(async (data) => {
     const filteredSpotifySongsTiktokViews = data
         .filter(d => d["TikTok Views"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
-        .slice(0, 30)
-        .title("Top 30 most popular Spotify Songs vs TikTok Views, with release date");
+        .slice(0, 30);
 
     const vlSpec = v1
         .markCircle()
@@ -46,13 +45,15 @@ fetchData().then(async (data) => {
         .encode(
             vl.x().fieldQ("TikTok Views").title("TikTok Views"),
             vl.y().fieldQ("Spotify Streams"),
-            vl.color().fieldN("Track"),
-            vl.tooltip(
-                [
-                    vl.fieldN("Track"),
-                    vl.fieldN("Artist")
-                ]
-            ))
+            vl.color().fieldN("Track")
+            // vl.tooltip(
+            //     [
+            //         vl.fieldN("Track"),
+            //         vl.fieldN("Artist")
+            //     ]
+            // ))
+        )
+        .title("Top 30 most popular Spotify Songs vs TikTok Views, with release date")
         .width(600)
         .height(400)
         .toSpec();
