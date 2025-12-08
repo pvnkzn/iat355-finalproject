@@ -168,12 +168,12 @@ section {
     background-color: #D8EA75;
 }
 
-/* .content-2 > * {
+.content-2 > * {
     width: 55.6875rem;
     justify-content: center;
     margin: 0 auto;
     margin-bottom: 10rem;
-} */
+}
 
 .content-2 h2 {
     color: #212121;
@@ -219,13 +219,13 @@ section {
     margin-bottom: 5rem;
 }
 
-#vis-1 .h2 {
+/* #vis-1 .h2 {
     color: #212121;
     background-color: #D8EA75;
 }
 #vis-1 .vegalite-container {
     background: #D8EA75;
-}
+} */
 
 
 
