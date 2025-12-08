@@ -130,11 +130,15 @@ section {
     margin-bottom: 10rem;
 }
 
-.title-image {
+.title-image img {
     width: 33.5rem;
 }
 
-.down-arrow {
+.title-image  {
+    border: 10px solid #D8EA75;
+}
+
+.down-arrow img {
     width: 6.25rem;
     height: 6.25rem;
 }
