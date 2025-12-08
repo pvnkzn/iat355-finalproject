@@ -84,6 +84,16 @@ h3 {
     margin-top: 1rem;
 }
 
+h4 {
+    color: #F3FACE;
+    text-align: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
 
 
 p {
@@ -144,20 +154,30 @@ section {
     margin-bottom: 10rem;
 }
 
-.title-image img {
-    width: 33.5rem;
+.content-2 {
+    width: 55.6875rem;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 10rem;
 }
 
-.title-image  {
+
+.title-image img {
+    width: 33.5rem;
     border: 10px solid #D8EA75;
 }
+
+/* .title-image  {
+    border: 10px solid #D8EA75;
+} */
 
 .down-arrow img {
     width: 6.25rem;
     height: 6.25rem;
+    justify-content: center;
 }
 
-.group-name p {
+.group-name h4 {
     text-align: center;
 }
 
