@@ -164,18 +164,21 @@ section {
 
 .title-image img {
     width: 33.5rem;
+    height: 33.4375rem;
     border: 10px solid #D8EA75;
     justify-content: center;
 }
 
 .title-image  {
     /* border: 10px solid #D8EA75; */
+    display: flex;
     width: 33.5rem;
     justify-content: center;
     align-items: center;
 }
 
 .down-arrow {
+    display: flex;
     width: 6.25rem;
     height: 6.25rem;
     justify-content: center;
