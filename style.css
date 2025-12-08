@@ -70,7 +70,7 @@ h2 {
     line-height: normal;
     margin-bottom: 2rem;
     margin-top: 1rem;
-    width: 59.5625rem;
+    width: 55.6875rem;
 }
 
 h3 {
@@ -160,6 +160,7 @@ section {
     justify-content: center;
     margin: 0 auto;
     margin-bottom: 10rem;
+    background-color: #D8EA75;
 }
 
 

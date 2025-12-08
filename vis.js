@@ -55,7 +55,7 @@ fetchData().then(async (data) => {
         )
         .title("Top 30 most popular Spotify Songs vs TikTok Views, with release date")
         .width(600)
-        .height(400)
+        .height(500)
         .toSpec();
         
 
