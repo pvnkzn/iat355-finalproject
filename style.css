@@ -10,7 +10,7 @@
 }
 
 .header {
-    /* background-color: #212121; */
+    background-color: #212121;
     width: 90rem;
 }
 
@@ -153,6 +153,7 @@ section {
     justify-content: center;
     margin: 0 auto;
     margin-bottom: 10rem;
+    background-color: #212121;
 }
 
 /* .content-2 {
