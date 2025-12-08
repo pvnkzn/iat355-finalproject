@@ -39,7 +39,7 @@ fetchData().then(async (data) => {
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 30);
 
-    const vlSpec = v1
+    const vlSpec = vl
         .markCircle()
         .data(filteredSpotifySongsTiktokViews)
         .encode(
