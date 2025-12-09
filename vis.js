@@ -48,8 +48,6 @@ fetchData().then(async (data) => {
             vl.color().fieldN("Track"),
             vl.tooltip(
                 [
-                    // vl.fieldN("Track"),
-                    // vl.fieldN("Artist")
                     {field: "Track"},
                     {field: "Artist"}
                 ]
@@ -135,14 +133,14 @@ fetchData().then(async (data) => {
         .encode(
             vl.y().fieldN("Track").sort("-x").title("Track Title"),
             vl.x().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]})
-            // vl.tooltip([
-            //     {field: "Artist", type: "nominal"},
-            //     {field: "Track", type: "nominal"},
-            //     {field: "TikTok Views", type: "quantitative"},
-            //     {field: "Spotify Streams", type: "quantitative"},
-            //     {field: "YouTube Views", type: "quantitative"}
-            // ])
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
+            vl.tooltip([
+                {field: "Artist", type: "nominal"},
+                {field: "Track", type: "nominal"},
+                {field: "TikTok Views", type: "quantitative"},
+                {field: "Spotify Streams", type: "quantitative"},
+                {field: "YouTube Views", type: "quantitative"}
+            ])
         )
         .width(800)
         .height(400)
@@ -359,7 +357,7 @@ fetchData().then(async (data) => {
         .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 20)
-        .map(d => [
+        .flatMap(d => [
         { 
           Track: d["Track"], 
           Artist: d["Artist"], 
@@ -393,7 +391,7 @@ fetchData().then(async (data) => {
         .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 20)
-        .map(d => [
+        .flatMap(d => [
         { 
           Track: d["Track"], 
           Artist: d["Artist"], 
@@ -427,7 +425,7 @@ fetchData().then(async (data) => {
         .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 20)
-        .map(d => [
+        .flatMap(d => [
         { 
           Track: d["Track"], 
           Artist: d["Artist"], 
