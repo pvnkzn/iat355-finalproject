@@ -416,3 +416,104 @@ footer {
     
 }
 
+
+/* ----- reponsiveness ------ */
+
+/* Tablet: 768px - 1024px */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.5rem;
+        width: 90%;
+    }
+
+    h2 {
+        font-size: 2rem;
+        width: 90%;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1.3rem;
+    }
+
+    .content, .content-2, .footer-content {
+        width: 90%;
+        padding: 2rem 1rem;
+    }
+
+    .title-image img {
+        width: 80%;
+        height: auto;
+    }
+
+    .tiktok-trophy {
+        gap: 3rem;
+    }
+
+    .artist img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Mobile: up to 767px */
+@media (max-width: 767px) {
+    header nav ul {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        width: 95%;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        width: 95%;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    .content, .content-2, .footer-content {
+        width: 95%;
+        padding: 1.5rem 1rem;
+    }
+
+    .title-image-arrow {
+        gap: 2rem;
+    }
+
+    .title-image img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .tiktok-trophy {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .artist img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .vegalite-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+
