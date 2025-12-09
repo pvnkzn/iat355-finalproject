@@ -23,6 +23,10 @@
     position: sticky;
 } */
 
+body {
+    margin: 0px;
+}
+
 header {
     background-color: #212121;
 }
