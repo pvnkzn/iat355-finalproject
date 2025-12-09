@@ -99,7 +99,7 @@ fetchData().then(async (data) => {
         .filter(d => d["TikTok Views"] && d["Spotify Streams"] && d["YouTube Views"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 20)
-        .map(d => [
+        .flatMap(d => [
             { 
                 Track: d["Track"], 
                 Artist: d["Artist"], 
@@ -206,7 +206,7 @@ fetchData().then(async (data) => {
         .filter(d => d["TikTok Views"] && d["Spotify Streams"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 20)
-        .map(d => [
+        .flatMap(d => [
         { 
           Track: d["Track"], 
           Artist: d["Artist"], 
@@ -229,7 +229,7 @@ fetchData().then(async (data) => {
         .filter(d => d["TikTok Views"] && d["Spotify Streams"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 20)
-        .map(d => [
+        .flatMap(d => [
         { 
           Track: d["Track"], 
           Artist: d["Artist"], 
@@ -252,7 +252,7 @@ fetchData().then(async (data) => {
         .filter(d => d["TikTok Views"] && d["Spotify Streams"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 20)
-        .map(d => [
+        .flatMap(d => [
         { 
           Track: d["Track"], 
           Artist: d["Artist"], 
@@ -272,6 +272,88 @@ fetchData().then(async (data) => {
     ])
 
 
+    const vlSpec3 = vl
+        .layer(
+            vl.markBar()
+            .data(bbno$FilteredTiktokSpotify)
+            .encode(
+                vl.y().fieldN("Track").sort("-x"),
+                vl.x().fieldQ("Value").title("Views / Streams"),
+                vl.color().fieldN("Metric").title("Platform").scale({scheme:"redblue"}),
+                vl.tooltip([
+                    {field: "Artist", type: "nominal"},
+                    {field: "Track", type: "nominal"},
+                    {field: "TikTok Views", type: "quantitative"},
+                    {field: "Spotify Streams", type: "quantitative"},
+                ])
+            ),
+            vl.markBar()
+            .data(hozierFilteredTiktokSpotify)
+            .encode(
+                vl.y().fieldN("Track").sort("-x"),
+                vl.x().fieldQ("Value").title("Views / Streams"),
+                vl.color().fieldN("Metric").title("Platform").scale({scheme:"redblue"}),
+                vl.tooltip([
+                    {field: "Artist", type: "nominal"},
+                    {field: "Track", type: "nominal"},
+                    {field: "TikTok Views", type: "quantitative"},
+                    {field: "Spotify Streams", type: "quantitative"},
+                ])
+            ),
+            vl.markBar()
+            .data(sabrinaFilteredTiktokSpotify)
+            .encode(
+                vl.y().fieldN("Track").sort("-x"),
+                vl.x().fieldQ("Value").title("Views / Streams"),
+                vl.color().fieldN("Metric").title("Platform").scale({scheme:"redblue"}),
+                vl.tooltip([
+                    {field: "Artist", type: "nominal"},
+                    {field: "Track", type: "nominal"},
+                    {field: "TikTok Views", type: "quantitative"},
+                    {field: "Spotify Streams", type: "quantitative"},
+                ])
+            )
+        )
+        .width(800)
+        .height(400)
+        .title("Artist Comparisons")
+        .toSpec();
+
+            
+            
+
+
+
+
+
+    // visualization 4 OLD
+    // const filteredSpotifyTiktok = data
+    //     .filter(d => d["Spotify Streams"])
+    //     .sort((a, b) => d3.descending(+a["Spotify Streams"], +b["Spotify Streams"]))
+    //     .slice(0, 30);
+
+
+    // const vlSpec4 = vl
+    //     .markCircle()
+    //     .data(filteredSpotifyTiktok)
+    //     .encode(
+    //         vl.x().fieldT("Release Date").title("Release Date"),
+    //         vl.y().fieldQ("Spotify Streams"),
+    //         vl.color().fieldN("Track").legend(null),
+    //         vl.size().fieldQ("TikTok Posts"),
+    //         vl.tooltip(
+    //             [
+    //                 vl.fieldN("Track"),
+    //                 vl.fieldN("Artist")
+    //             ]
+    //         )
+    //     )
+    //     .width(600)
+    //     .height(500)
+    //     .title("Top 30 most popular Spotify Songs vs TikTok Posts, with release date")
+    //     .toSpec();
+
+    // visualization 4 NEW
 
     const bbno$FilteredTiktok = bbno$
         .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
@@ -374,88 +456,6 @@ fetchData().then(async (data) => {
           "TikTok Likes": +d["TikTok Likes"]
         }
     ])
-
-
-    const vlSpec3 = vl
-        .layer(
-            vl.markBar()
-            .data(bbno$FilteredTiktokSpotify)
-            .encode(
-                vl.y().fieldN("Track").sort("-x"),
-                vl.x().fieldQ("Value").title("Views / Streams"),
-                vl.color().fieldN("Metric").title("Platform").scale({scheme:"redblue"}),
-                vl.tooltip([
-                    {field: "Artist", type: "nominal"},
-                    {field: "Track", type: "nominal"},
-                    {field: "TikTok Views", type: "quantitative"},
-                    {field: "Spotify Streams", type: "quantitative"},
-                ])
-            ),
-            vl.markBar()
-            .data(hozierFilteredTiktokSpotify)
-            .encode(
-                vl.y().fieldN("Track").sort("-x"),
-                vl.x().fieldQ("Value").title("Views / Streams"),
-                vl.color().fieldN("Metric").title("Platform").scale({scheme:"redblue"}),
-                vl.tooltip([
-                    {field: "Artist", type: "nominal"},
-                    {field: "Track", type: "nominal"},
-                    {field: "TikTok Views", type: "quantitative"},
-                    {field: "Spotify Streams", type: "quantitative"},
-                ])
-            ),
-            vl.markBar()
-            .data(sabrinaFilteredTiktokSpotify)
-            .encode(
-                vl.y().fieldN("Track").sort("-x"),
-                vl.x().fieldQ("Value").title("Views / Streams"),
-                vl.color().fieldN("Metric").title("Platform").scale({scheme:"redblue"}),
-                vl.tooltip([
-                    {field: "Artist", type: "nominal"},
-                    {field: "Track", type: "nominal"},
-                    {field: "TikTok Views", type: "quantitative"},
-                    {field: "Spotify Streams", type: "quantitative"},
-                ])
-            )
-        )
-        .width(800)
-        .height(400)
-        .title("Artist Comparisons")
-        .toSpec();
-
-            
-            
-
-
-
-
-
-    // visualization 4
-    const filteredSpotifyTiktok = data
-        .filter(d => d["Spotify Streams"])
-        .sort((a, b) => d3.descending(+a["Spotify Streams"], +b["Spotify Streams"]))
-        .slice(0, 30);
-
-
-    const vlSpec4 = vl
-        .markCircle()
-        .data(filteredSpotifyTiktok)
-        .encode(
-            vl.x().fieldT("Release Date").title("Release Date"),
-            vl.y().fieldQ("Spotify Streams"),
-            vl.color().fieldN("Track").legend(null),
-            vl.size().fieldQ("TikTok Posts"),
-            vl.tooltip(
-                [
-                    vl.fieldN("Track"),
-                    vl.fieldN("Artist")
-                ]
-            )
-        )
-        .width(600)
-        .height(500)
-        .title("Top 30 most popular Spotify Songs vs TikTok Posts, with release date")
-        .toSpec();
 
 
     //render
