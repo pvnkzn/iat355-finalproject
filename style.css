@@ -250,6 +250,7 @@ section {
     /* gap: 4.375rem; */
     gap: 5rem;
     background: #212121;
+    margin-top: 0;
 }
 
 .tiktok-trophy h4 {
@@ -267,8 +268,8 @@ section {
 .tiktok-trophy img {
     /* padding-top: 1rem;
     padding-bottom: 1rem; */
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     background: #212121;
 }
 
@@ -283,6 +284,7 @@ section {
     width: 250px;
     height: 250px;
     background: white;
+    border: 10px solid #D8EA75;
 }
 
 
