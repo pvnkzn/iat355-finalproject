@@ -158,7 +158,8 @@ section {
     width: 55.6875rem;
     justify-content: center;
     margin: 0 auto;
-    margin-bottom: 10rem;
+    /* margin-bottom: 10rem; */
+    padding-bottom: 10rem;
     background-color: #212121;
 }
 
@@ -240,7 +241,7 @@ section {
     padding-bottom: 5rem;
 }
 
-#vis-1-description, #vis-2-description, #vis-3-4, #vis-5-6-7-description, #vis-5-6-7, #vis-5-6-7-description-2 {
+#intro, #vis-1-description, #vis-2-description, #vis-3-4, #vis-5-6-7-description, #vis-5-6-7, #vis-5-6-7-description-2 {
     background: #212121;
 }
 
