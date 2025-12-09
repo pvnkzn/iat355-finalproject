@@ -48,8 +48,10 @@ fetchData().then(async (data) => {
             vl.color().fieldN("Track"),
             vl.tooltip(
                 [
-                    vl.fieldN("Track"),
-                    vl.fieldN("Artist")
+                    // vl.fieldN("Track"),
+                    // vl.fieldN("Artist")
+                    {field: "Track"},
+                    {field: "Artist"}
                 ]
             )
         )
@@ -95,7 +97,7 @@ fetchData().then(async (data) => {
     // visualization 2 NEW
     const viralSongs = data
         .filter(d => d["TikTok Views"] && d["Spotify Streams"] && d["YouTube Views"])
-        .sort((a, b) => d3.descending(a["TikTok Views"], b["TikTok Views"]))
+        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 20)
         .map(d => [
             { 
