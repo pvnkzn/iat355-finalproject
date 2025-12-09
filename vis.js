@@ -97,35 +97,35 @@ fetchData().then(async (data) => {
     // visualization 2 NEW
     const viralSongs = data
         .filter(d => d["TikTok Views"] && d["Spotify Streams"] && d["YouTube Views"])
-        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
+        .sort((a, b) => d3.descending(a["TikTok Views"], b["TikTok Views"]))
         .slice(0, 20)
         .flatMap(d => [
             { 
                 Track: d["Track"], 
                 Artist: d["Artist"], 
                 Metric: "TikTok Views", 
-                Value: +d["TikTok Views"], 
-                "TikTok Views": +d["TikTok Views"], 
-                "Spotify Streams": +d["Spotify Streams"],
-                "YouTube Views": +d["YouTube Views"]
+                Value: d["TikTok Views"], 
+                "TikTok Views": d["TikTok Views"], 
+                "Spotify Streams": d["Spotify Streams"],
+                "YouTube Views": d["YouTube Views"]
             },
             { 
                 Track: d["Track"], 
                 Artist: d["Artist"], 
                 Metric: "Spotify Streams", 
-                Value: +d["Spotify Streams"], 
-                "TikTok Views": +d["TikTok Views"], 
-                "Spotify Streams": +d["Spotify Streams"],
-                "YouTube Views": +d["YouTube Views"]
+                Value: d["Spotify Streams"], 
+                "TikTok Views": d["TikTok Views"], 
+                "Spotify Streams": d["Spotify Streams"],
+                "YouTube Views": d["YouTube Views"]
             },
             { 
                 Track: d["Track"], 
                 Artist: d["Artist"], 
                 Metric: "YouTube Views", 
-                Value: +d["YouTube Views"], 
-                "TikTok Views": +d["TikTok Views"], 
-                "Spotify Streams": +d["Spotify Streams"],
-                "YouTube Views": +d["YouTube Views"]
+                Value: d["YouTube Views"], 
+                "TikTok Views": d["TikTok Views"], 
+                "Spotify Streams": d["Spotify Streams"],
+                "YouTube Views": d["YouTube Views"]
             }
         ]);
 
