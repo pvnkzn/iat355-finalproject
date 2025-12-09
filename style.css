@@ -230,6 +230,12 @@ section {
     margin-bottom: 5rem;
 }
 
+#vis-2 {
+    background: #D8EA75;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
 
 
 
@@ -312,6 +318,20 @@ section {
     width: 254px;
     border-radius: 20px;
     overflow: hidden;
+}
+
+#takeaways {
+    background: #D8EA75;
+}
+
+#takeaways h2 {
+    color: #212121;
+
+}
+
+#takeaways p {
+    color: #212121;
+
 }
 
 
