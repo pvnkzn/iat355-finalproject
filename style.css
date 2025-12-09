@@ -211,6 +211,14 @@ section {
     background-color: #D8EA75;
 }
 
+.title-image-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
 
 .title-image img {
     width: 33.5rem;
