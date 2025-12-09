@@ -159,7 +159,8 @@ section {
     justify-content: center;
     margin: 0 auto;
     /* margin-bottom: 10rem; */
-    padding-bottom: 10rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     background-color: #212121;
 }
 
@@ -175,9 +176,11 @@ section {
     width: 55.6875rem;
     justify-content: center;
     margin: 0 auto;
-    margin-bottom: 10rem;
+    /* margin-bottom: 10rem;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; */
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 /* .content-2 > * {
