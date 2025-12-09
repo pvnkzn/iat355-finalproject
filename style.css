@@ -264,7 +264,9 @@ section {
 
 #tiktok-artist-trophy .content{
     background: #212121;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
+    padding-top: 2rem;
+    padding-bottom: 5rem;
 }
 
 .tiktok-trophy {
@@ -275,12 +277,14 @@ section {
     gap: 5rem;
     background: #212121;
     margin-top: 0;
+
 }
 
 .tiktok-trophy h4 {
     width: auto;
     background: #212121;
     color: #5BE3C3;
+    padding-bottom: 0;
 }
 
 .tiktok-trophy p {
