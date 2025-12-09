@@ -45,13 +45,13 @@ fetchData().then(async (data) => {
         .encode(
             vl.x().fieldQ("TikTok Views").title("TikTok Views"),
             vl.y().fieldQ("Spotify Streams"),
-            vl.color().fieldN("Track")
-            // vl.tooltip(
-            //     [
-            //         vl.fieldN("Track"),
-            //         vl.fieldN("Artist")
-            //     ]
-            // ))
+            vl.color().fieldN("Track"),
+            vl.tooltip(
+                [
+                    vl.fieldN("Track"),
+                    vl.fieldN("Artist")
+                ]
+            )
         )
         .title("Top 30 most popular Spotify Songs vs TikTok Views, with release date")
         .width(600)
