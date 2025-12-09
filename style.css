@@ -316,13 +316,14 @@ section {
 
 
 footer {
-    background-color: white;
+    background-color: #212121;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    border-top: 1px solid #F3FACE;
 }
 
 .footer-content {
-    background-color: white;
+    background-color: #212121;
     width: 55.6875rem;
     justify-content: center;
     margin: 0 auto;
@@ -331,10 +332,10 @@ footer {
 }
 
 .footer-content p {
-    background-color: white;
-    color: #FFB4B4;
+    background-color: #212121;
+    color: #F3FACE;
     font-family: "Inter";
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
