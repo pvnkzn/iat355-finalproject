@@ -16,7 +16,7 @@
 }
 
 .main {
-    /* background-color: #212121; */
+    background-color: #212121;
     width: 90rem;
 }
 /* header nav {
@@ -43,6 +43,10 @@ header nav a {
     font-weight: 400;
     line-height: normal;
 
+}
+
+body a {
+    color: #5BE3C3;
 }
 
 header nav a:hover {
@@ -227,15 +231,15 @@ section {
 
 
 #tiktok-artist-trophy {
-    background: #5D5D5D;
+    background: #212121;
 }
 
-#tiktok-artist-trophy h2{
-    background: #5D5D5D;
+#tiktok-artist-trophy h4{
+    background: #212121;
 }
 
 #tiktok-artist-trophy .content{
-    background: #5D5D5D;
+    background: #212121;
     margin-top: 2rem;
 }
 
@@ -243,19 +247,21 @@ section {
     display: flex;
     justify-content: center;
     /* align-items: center; */
-    gap: 4.375rem;
-    background: #5D5D5D;
+    /* gap: 4.375rem; */
+    gap: 5rem;
+    background: #212121;
 }
 
-.tiktok-trophy h1 {
+.tiktok-trophy h4 {
     width: auto;
-    background: #5D5D5D;
+    background: #212121;
+    color: #5BE3C3;
 }
 
-.tiktok-trophy h2 {
+.tiktok-trophy p {
     width: auto;
     margin-bottom: 1rem;
-    background: #5D5D5D;
+    background: #212121;
 }
 
 .tiktok-trophy img {
@@ -263,14 +269,14 @@ section {
     padding-bottom: 1rem; */
     margin-top: 1rem;
     margin-bottom: 1rem;
-    background: #5D5D5D;
+    background: #212121;
 }
 
 .artist {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #5D5D5D;
+    background: #212121;
 }
 
 .artist img {
