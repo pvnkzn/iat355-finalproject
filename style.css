@@ -179,8 +179,11 @@ section {
     /* margin-bottom: 10rem;
     margin-top: 2rem;
     margin-bottom: 2rem; */
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    /* padding-top: 5rem;
+    padding-bottom: 5rem; */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: #D8EA75;
 }
 
 /* .content-2 > * {
