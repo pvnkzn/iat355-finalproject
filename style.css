@@ -62,6 +62,10 @@ body a {
     color: #5BE3C3;
 }
 
+body a:hover {
+    color: #D8EA75;
+}
+
 header nav a:hover {
     text-decoration: underline;
     color: #5BE3C3;
@@ -253,6 +257,10 @@ img {
     color: #5BE3C3;
 }
 
+.highlight-2 {
+    font-weight: 600;
+}
+
 #intro .content {
     padding-top: 3rem;
 }
@@ -350,28 +358,6 @@ img {
     padding-top: 5rem;
 }
 
-#tiktok-shot {
-    margin-top: 15rem;
-    margin-bottom: 15rem;
-}
-
-.shots-container {
-    display: flex;
-    justify-content: center;
-    gap: 1.25rem;
-    align-items: flex-end;
-    flex-wrap: nowrap;
-}
-
-.shot {
-    display: flex;
-    align-items: flex-end;
-    background-color: #FFFFFF;
-    height: 30.1875rem;
-    width: 254px;
-    border-radius: 20px;
-    overflow: hidden;
-}
 
 #takeaways {
     background: #D8EA75;
