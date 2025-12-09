@@ -450,12 +450,20 @@ footer {
     }
 
     .tiktok-trophy {
+        flex-direction: column;
         gap: 3rem;
     }
 
     .artist img {
         width: 200px;
         height: 200px;
+    }
+
+    .vegalite-container {
+        width: 90%;
+        max-width: 700px;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
@@ -511,6 +519,8 @@ footer {
     }
 
     .vegalite-container {
+        width: 95%;
+        max-width: 100%;
         padding-left: 1rem;
         padding-right: 1rem;
     }
