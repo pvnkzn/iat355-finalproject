@@ -152,38 +152,212 @@ fetchData().then(async (data) => {
     
 
 
-    // visualization 3
-    const filteredTiktok = data
-        .filter(d => d["TikTok Posts"])
-        .sort((a, b) => d3.descending(+a["TikTok Posts"], +b["TikTok Posts"]))
-        .slice(0, 30)
-        .map(d => (
-            { 
-                Track: d["Track"], 
-                Artist: d["Artist"], 
-                Metric: "TikTok Posts", 
-                Value: +d["TikTok Posts"], 
-                "TikTok Posts": +d["TikTok Posts"]
-            }
-        ));
+    // visualization 3 OLD
+    // const filteredTiktok = data
+    //     .filter(d => d["TikTok Posts"])
+    //     .sort((a, b) => d3.descending(+a["TikTok Posts"], +b["TikTok Posts"]))
+    //     .slice(0, 30)
+    //     .map(d => (
+    //         { 
+    //             Track: d["Track"], 
+    //             Artist: d["Artist"], 
+    //             Metric: "TikTok Posts", 
+    //             Value: +d["TikTok Posts"], 
+    //             "TikTok Posts": +d["TikTok Posts"]
+    //         }
+    //     ));
+
+    // const vlSpec3 = vl
+    //     .markBar()
+    //     .data(filteredTiktok)
+    //     .encode(
+    //         vl.y().fieldN("Track").sort("-x").title("Track Title"),
+    //         vl.x().fieldQ("Value").title("Posts"),
+    //         vl.color().fieldN("Artist").title("Artist"),
+    //         vl.tooltip([
+    //             vl.fieldN("Artist"),
+    //             vl.fieldN("Track"),
+    //             vl.fieldQ("TikTok Posts")
+    //         ])
+    //     )
+    //     .width(800)
+    //     .height(400)
+    //     .title("Top 30 Most Posted TikTok Songs")
+    //     .toSpec();
+
+
+    //visualization 3 NEW
+    const bbno$ = data
+        .filter((d) => {
+            return typeof(d.Artist)==="string" && d.Artist.toLowerCase().includes("bbno$") && d.Track;
+    });
+
+    const hozier = data
+        .filter((d) => {
+            return typeof(d.Artist)==="string" && d.Artist.toLowerCase().includes("hozier") && d.Track;
+    });
+
+    const sabrina = data
+        .filter((d) => {
+            return typeof(d.Artist)==="string" && d.Artist.toLowerCase().includes("sabrina") && d.Track.toLowerCase().includes("espresso");
+    });
+
+    const bbno$Filtered = bbno$
+        .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
+        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
+        .slice(0, 20)
+        .map(d => [
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Views", 
+          Value: +d["TikTok Views"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "TikTok Posts": +d["TikTok Posts"],
+          "TikTok Likes": +d["TikTok Likes"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Posts", 
+          Value: +d["TikTok Posts"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "TikTok Posts": +d["TikTok Posts"],
+          "TikTok Likes": +d["TikTok Likes"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Likes", 
+          Value: +d["TikTok Likes"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "TikTok Posts": +d["TikTok Posts"],
+          "TikTok Likes": +d["TikTok Likes"]
+        }
+    ])
+  
+    const hozierFiltered = hozier
+        .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
+        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
+        .slice(0, 20)
+        .map(d => [
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Views", 
+          Value: +d["TikTok Views"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "TikTok Posts": +d["TikTok Posts"],
+          "TikTok Likes": +d["TikTok Likes"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Posts", 
+          Value: +d["TikTok Posts"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "TikTok Posts": +d["TikTok Posts"],
+          "TikTok Likes": +d["TikTok Likes"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Likes", 
+          Value: +d["TikTok Likes"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "TikTok Posts": +d["TikTok Posts"],
+          "TikTok Likes": +d["TikTok Likes"]
+        }
+    ])
+        
+    const sabrinaFiltered = sabrina
+        .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
+        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
+        .slice(0, 20)
+        .map(d => [
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Views", 
+          Value: +d["TikTok Views"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "TikTok Posts": +d["TikTok Posts"],
+          "TikTok Likes": +d["TikTok Likes"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Posts", 
+          Value: +d["TikTok Posts"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "TikTok Posts": +d["TikTok Posts"],
+          "TikTok Likes": +d["TikTok Likes"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Likes", 
+          Value: +d["TikTok Likes"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "TikTok Posts": +d["TikTok Posts"],
+          "TikTok Likes": +d["TikTok Likes"]
+        }
+    ])
+
 
     const vlSpec3 = vl
-        .markBar()
-        .data(filteredTiktok)
-        .encode(
-            vl.y().fieldN("Track").sort("-x").title("Track Title"),
-            vl.x().fieldQ("Value").title("Posts"),
-            vl.color().fieldN("Artist").title("Artist"),
-            vl.tooltip([
-                vl.fieldN("Artist"),
-                vl.fieldN("Track"),
-                vl.fieldQ("TikTok Posts")
-            ])
+        .layer(
+            vl.markBar()
+            .data(bbno$Filtered)
+            .encode(
+                vl.y().fieldN("Track").sort("-x"),
+                vl.x().fieldQ("Value").title("Views / Streams"),
+                vl.color().fieldN("Metric").title("Platform").scale({scheme:"redblue"}),
+                vl.tooltip([
+                    {field: "Artist", type: "nominal"},
+                    {field: "Track", type: "nominal"},
+                    {field: "TikTok Views", type: "quantitative"},
+                    {field: "Spotify Streams", type: "quantitative"},
+                ])
+            ),
+            vl.markBar()
+            .data(hozierFiltered)
+            .encode(
+                vl.y().fieldN("Track").sort("-x"),
+                vl.x().fieldQ("Value").title("Views / Streams"),
+                vl.color().fieldN("Metric").title("Platform").scale({scheme:"redblue"}),
+                vl.tooltip([
+                    {field: "Artist", type: "nominal"},
+                    {field: "Track", type: "nominal"},
+                    {field: "TikTok Views", type: "quantitative"},
+                    {field: "Spotify Streams", type: "quantitative"},
+                ])
+            ),
+            vl.markBar()
+            .data(sabrinaFiltered)
+            .encode(
+                vl.y().fieldN("Track").sort("-x"),
+                vl.x().fieldQ("Value").title("Views / Streams"),
+                vl.color().fieldN("Metric").title("Platform").scale({scheme:"redblue"}),
+                vl.tooltip([
+                    {field: "Artist", type: "nominal"},
+                    {field: "Track", type: "nominal"},
+                    {field: "TikTok Views", type: "quantitative"},
+                    {field: "Spotify Streams", type: "quantitative"},
+                ])
+            )
         )
         .width(800)
         .height(400)
-        .title("Top 30 Most Posted TikTok Songs")
+        .title("Artist Comparisons")
         .toSpec();
+
+            
+            
+
+
+
+
 
     // visualization 4
     const filteredSpotifyTiktok = data
