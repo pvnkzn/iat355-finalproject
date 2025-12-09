@@ -616,7 +616,7 @@ fetchData().then(async (data) => {
         .toSpec();
 
     // visualization 7
-    
+
     const sabrinaFilteredPlatforms = sabrina
         .filter(d => d["TikTok Views"] && d["Spotify Streams"] && d["YouTube Views"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
@@ -676,8 +676,8 @@ fetchData().then(async (data) => {
     render("#view3", vlSpec3);
     render("#view4", vlSpec4);
     render("#view5", vlSpec5);
-    render("#view5", vlSpec6);
-    render("#view5", vlSpec7);
+    render("#view6", vlSpec6);
+    render("#view7", vlSpec7);
 
 });
 
