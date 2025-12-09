@@ -541,7 +541,6 @@ fetchData().then(async (data) => {
         }
     ])
 
-
     const vlSpec5 = vl
         .markArc()
         .data(bbno$FilteredPlatforms)
@@ -561,6 +560,115 @@ fetchData().then(async (data) => {
         .title("Artist Comparisons")
         .toSpec();
 
+    // visualization 6
+
+    const hozierFilteredPlatforms = hozier
+        .filter(d => d["TikTok Views"] && d["Spotify Streams"] && d["YouTube Views"])
+        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
+        .slice(0, 20)
+        .flatMap(d => [
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Views", 
+          Value: +d["TikTok Views"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "Spotify Streams": +d["Spotify Streams"],
+          "YouTube Views": +d["YouTube Views"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "Spotify Streams", 
+          Value: +d["Spotify Streams"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "Spotify Streams": +d["Spotify Streams"],
+          "YouTube Views": +d["YouTube Views"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "YouTube Views", 
+          Value: +d["YouTube Views"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "Spotify Streams": +d["Spotify Streams"],
+          "YouTube Views": +d["YouTube Views"]
+        }
+    ])
+
+    const vlSpec6 = vl
+        .markArc()
+        .data(hozierFilteredPlatforms)
+        .encode(
+            vl.theta().fieldQ("Value").title("Views / Streams"),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
+            vl.tooltip([
+                {field: "Artist", type: "nominal"},
+                {field: "Track", type: "nominal"},
+                {field: "TikTok Views", type: "quantitative"},
+                {field: "Spotify Streams", type: "quantitative"},
+                {field: "YouTube Views", type: "quantitative"}
+            ])
+        )
+        .width(800)
+        .height(400)
+        .title("Artist Comparisons")
+        .toSpec();
+
+    // visualization 7
+    
+    const sabrinaFilteredPlatforms = sabrina
+        .filter(d => d["TikTok Views"] && d["Spotify Streams"] && d["YouTube Views"])
+        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
+        .slice(0, 20)
+        .flatMap(d => [
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Views", 
+          Value: +d["TikTok Views"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "Spotify Streams": +d["Spotify Streams"],
+          "YouTube Views": +d["YouTube Views"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "Spotify Streams", 
+          Value: +d["Spotify Streams"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "Spotify Streams": +d["Spotify Streams"],
+          "YouTube Views": +d["YouTube Views"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "YouTube Views", 
+          Value: +d["YouTube Views"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "Spotify Streams": +d["Spotify Streams"],
+          "YouTube Views": +d["YouTube Views"]
+        }
+    ])
+
+    const vlSpec7 = vl
+        .markArc()
+        .data(sabrinaFilteredPlatforms)
+        .encode(
+            vl.theta().fieldQ("Value").title("Views / Streams"),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
+            vl.tooltip([
+                {field: "Artist", type: "nominal"},
+                {field: "Track", type: "nominal"},
+                {field: "TikTok Views", type: "quantitative"},
+                {field: "Spotify Streams", type: "quantitative"},
+                {field: "YouTube Views", type: "quantitative"}
+            ])
+        )
+        .width(800)
+        .height(400)
+        .title("Artist Comparisons")
+        .toSpec();
 
     //render
     render("#view", vlSpec);
@@ -568,6 +676,8 @@ fetchData().then(async (data) => {
     render("#view3", vlSpec3);
     render("#view4", vlSpec4);
     render("#view5", vlSpec5);
+    render("#view5", vlSpec6);
+    render("#view5", vlSpec7);
 
 });
 
