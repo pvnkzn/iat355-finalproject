@@ -133,14 +133,14 @@ fetchData().then(async (data) => {
         .encode(
             vl.y().fieldN("Track").sort("-x").title("Track Title"),
             vl.x().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
-            vl.tooltip([
-                {field: "Artist", type: "nominal"},
-                {field: "Track", type: "nominal"},
-                {field: "TikTok Views", type: "quantitative"},
-                {field: "Spotify Streams", type: "quantitative"},
-                {field: "YouTube Views", type: "quantitative"}
-            ])
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]})
+            // vl.tooltip([
+            //     {field: "Artist", type: "nominal"},
+            //     {field: "Track", type: "nominal"},
+            //     {field: "TikTok Views", type: "quantitative"},
+            //     {field: "Spotify Streams", type: "quantitative"},
+            //     {field: "YouTube Views", type: "quantitative"}
+            // ])
         )
         .width(800)
         .height(400)
