@@ -202,7 +202,78 @@ fetchData().then(async (data) => {
             return typeof(d.Artist)==="string" && d.Artist.toLowerCase().includes("sabrina") && d.Track.toLowerCase().includes("espresso");
     });
 
-    const bbno$Filtered = bbno$
+    const bbno$FilteredTiktokSpotify = bbno$
+        .filter(d => d["TikTok Views"] && d["Spotify Streams"])
+        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
+        .slice(0, 20)
+        .map(d => [
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Views", 
+          Value: +d["TikTok Views"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "Spotify Streams": +d["Spotify Streams"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "Spotify Streams", 
+          Value: +d["Spotify Streams"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "Spotify Streams": +d["Spotify Streams"]
+        }
+    ])
+
+    const hozierFilteredTiktokSpotify = hozier
+        .filter(d => d["TikTok Views"] && d["Spotify Streams"])
+        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
+        .slice(0, 20)
+        .map(d => [
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Views", 
+          Value: +d["TikTok Views"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "Spotify Streams": +d["Spotify Streams"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "Spotify Streams", 
+          Value: +d["Spotify Streams"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "Spotify Streams": +d["Spotify Streams"]
+        }
+    ])
+
+    const sabrinaFilteredTiktokSpotify = sabrina
+        .filter(d => d["TikTok Views"] && d["Spotify Streams"])
+        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
+        .slice(0, 20)
+        .map(d => [
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Views", 
+          Value: +d["TikTok Views"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "Spotify Streams": +d["Spotify Streams"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "Spotify Streams", 
+          Value: +d["Spotify Streams"], 
+          "TikTok Views": +d["TikTok Views"], 
+          "Spotify Streams": +d["Spotify Streams"]
+        }
+    ])
+
+
+
+    const bbno$FilteredTiktok = bbno$
         .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 20)
@@ -236,7 +307,7 @@ fetchData().then(async (data) => {
         }
     ])
   
-    const hozierFiltered = hozier
+    const hozierFilteredTiktok = hozier
         .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 20)
@@ -270,7 +341,7 @@ fetchData().then(async (data) => {
         }
     ])
         
-    const sabrinaFiltered = sabrina
+    const sabrinaFilteredTiktok = sabrina
         .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
         .slice(0, 20)
@@ -308,7 +379,7 @@ fetchData().then(async (data) => {
     const vlSpec3 = vl
         .layer(
             vl.markBar()
-            .data(bbno$Filtered)
+            .data(bbno$FilteredTiktokSpotify)
             .encode(
                 vl.y().fieldN("Track").sort("-x"),
                 vl.x().fieldQ("Value").title("Views / Streams"),
@@ -321,7 +392,7 @@ fetchData().then(async (data) => {
                 ])
             ),
             vl.markBar()
-            .data(hozierFiltered)
+            .data(hozierFilteredTiktokSpotify)
             .encode(
                 vl.y().fieldN("Track").sort("-x"),
                 vl.x().fieldQ("Value").title("Views / Streams"),
@@ -334,7 +405,7 @@ fetchData().then(async (data) => {
                 ])
             ),
             vl.markBar()
-            .data(sabrinaFiltered)
+            .data(sabrinaFilteredTiktokSpotify)
             .encode(
                 vl.y().fieldN("Track").sort("-x"),
                 vl.x().fieldQ("Value").title("Views / Streams"),
