@@ -6,7 +6,8 @@
 
 .body {
     background-color: #212121;
-    width: 90rem;
+    /* remove this width*/
+    width: 90rem; 
 }
 
 .header {

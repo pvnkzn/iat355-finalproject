@@ -102,28 +102,28 @@ fetchData().then(async (data) => {
                 Track: d["Track"], 
                 Artist: d["Artist"], 
                 Metric: "TikTok Views", 
-                Value: d["TikTok Views"], 
-                "TikTok Views": d["TikTok Views"], 
-                "Spotify Streams": d["Spotify Streams"],
-                "YouTube Views": d["YouTube Views"]
+                Value: +d["TikTok Views"], 
+                "TikTok Views": +d["TikTok Views"], 
+                "Spotify Streams": +d["Spotify Streams"],
+                "YouTube Views": +d["YouTube Views"]
             },
             { 
                 Track: d["Track"], 
                 Artist: d["Artist"], 
                 Metric: "Spotify Streams", 
-                Value: d["Spotify Streams"], 
-                "TikTok Views": d["TikTok Views"], 
-                "Spotify Streams": d["Spotify Streams"],
-                "YouTube Views": d["YouTube Views"]
+                Value: +d["Spotify Streams"], 
+                "TikTok Views": +d["TikTok Views"], 
+                "Spotify Streams": +d["Spotify Streams"],
+                "YouTube Views": +d["YouTube Views"]
             },
             { 
                 Track: d["Track"], 
                 Artist: d["Artist"], 
                 Metric: "YouTube Views", 
-                Value: d["YouTube Views"], 
-                "TikTok Views": d["TikTok Views"], 
-                "Spotify Streams": d["Spotify Streams"],
-                "YouTube Views": d["YouTube Views"]
+                Value: +d["YouTube Views"], 
+                "TikTok Views": +d["TikTok Views"], 
+                "Spotify Streams": +d["Spotify Streams"],
+                "YouTube Views": +d["YouTube Views"]
             }
         ]);
 
