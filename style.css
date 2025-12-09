@@ -229,14 +229,14 @@ section {
 
 .title-image  {
     /* border: 10px solid #D8EA75; */
-    display: flex;
+    /* display: flex; */
     width: 33.5rem;
     justify-content: center;
     align-items: center;
 }
 
 .down-arrow {
-    display: flex;
+    /* display: flex; */
     width: 6.25rem;
     height: 6.25rem;
     justify-content: center;
