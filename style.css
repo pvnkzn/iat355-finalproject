@@ -505,7 +505,7 @@ footer {
     .title-image {
         width: 11.5rem;
     }
-    
+
     .title-image img {
         width: 100%;
         max-width: 300px;
@@ -527,6 +527,10 @@ footer {
         max-width: 100%;
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+
+    #view2 {
+        max-width: 100vw;
     }
 }
 
