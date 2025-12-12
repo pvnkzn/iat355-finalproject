@@ -82,7 +82,7 @@ fetchData().then(async (data) => {
                 {field: "YouTube Views", type: "quantitative"}
             ])
         )
-        .width(800)
+        // .width(800)
         .width("container")
         .height(400)
         .title("Top 20 Most Viral Songs on Tiktok Compared with Spotify Streams")
