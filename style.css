@@ -444,6 +444,10 @@ footer {
         font-size: 1.3rem;
     }
 
+    header nav ul {
+        gap: 2.5rem;
+    }
+
     .content, .content-2, .footer-content {
         width: 90%;
         padding: 2rem 1rem;
