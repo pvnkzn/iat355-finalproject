@@ -27,7 +27,8 @@ fetchData().then(async (data) => {
             )
         )
         .title("Top 30 most popular Spotify Songs vs TikTok Views, with release date")
-        .width(600)
+        // .width(600)
+        .width("container")
         .height(500)
         .toSpec();
         
@@ -217,7 +218,8 @@ fetchData().then(async (data) => {
                 ])
             )
         )
-        .width(800)
+        // .width(800)
+        .width("container")
         .height(400)
         .title("Artist Comparisons")
         .toSpec();
@@ -372,7 +374,8 @@ fetchData().then(async (data) => {
                 ])
             )
         )
-        .width(800)
+        // .width(800)
+        .width("container")
         .height(400)
         .title("Artist Comparisons")
         .toSpec();
@@ -427,7 +430,8 @@ fetchData().then(async (data) => {
                 {field: "YouTube Views", type: "quantitative"}
             ])
         )
-        .width(800)
+        // .width(800)
+        .width("container")
         .height(400)
         .title("Artist Comparisons")
         .toSpec();
@@ -482,7 +486,8 @@ fetchData().then(async (data) => {
                 {field: "YouTube Views", type: "quantitative"}
             ])
         )
-        .width(800)
+        // .width(800)
+        .width("container")
         .height(400)
         .title("Artist Comparisons")
         .toSpec();
@@ -537,7 +542,8 @@ fetchData().then(async (data) => {
                 {field: "YouTube Views", type: "quantitative"}
             ])
         )
-        .width(800)
+        // .width(800)
+        .width("container")
         .height(400)
         .title("Artist Comparisons")
         .toSpec();
