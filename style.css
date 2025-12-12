@@ -445,7 +445,7 @@ footer {
     }
 
     .title-image img {
-        width: 80%;
+        /* width: 80%; */
         height: auto;
     }
 
@@ -502,6 +502,10 @@ footer {
         gap: 2rem;
     }
 
+    .title-image {
+        width: 11.5rem;
+    }
+    
     .title-image img {
         width: 100%;
         max-width: 300px;
