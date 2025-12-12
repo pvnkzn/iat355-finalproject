@@ -83,6 +83,7 @@ fetchData().then(async (data) => {
             ])
         )
         .width(800)
+        .width("container")
         .height(400)
         .title("Top 20 Most Viral Songs on Tiktok Compared with Spotify Streams")
         .toSpec();
