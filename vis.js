@@ -421,19 +421,25 @@ fetchData().then(async (data) => {
         .data(bbno$FilteredPlatforms)
         .encode(
             vl.theta().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#D8EA75","#5BE3C3","#EA7577",]}).legend(null),
             vl.tooltip([
-                {field: "Artist", type: "nominal"},
-                {field: "Track", type: "nominal"},
-                {field: "TikTok Views", type: "quantitative"},
-                {field: "Spotify Streams", type: "quantitative"},
-                {field: "YouTube Views", type: "quantitative"}
-            ])
+                {field: "Metric", type: "nominal"},
+                {field: "Value", type: "quantitative", format: ",.2s"},
+                {field: "percent_of_total", type: "quantitative", format: ".1%", title: "Share"} 
+            ])  
         )
+        
+
+        
         // .width(800)
         .width("container")
         .height(400)
-        .title("Artist Comparisons")
+        .title({
+            text: "bbno$ Platform Metrics",
+            fontSize: 30,
+            color:"#F3FACE",
+        })
+        .background("transparent")
         .toSpec();
 
     // visualization 6
