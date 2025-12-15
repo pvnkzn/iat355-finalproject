@@ -289,28 +289,6 @@ fetchData().then(async (data) => {
         })
         .toSpec();
 
-    
-
-    // const vlSpec2 = vl
-    //     .markBar()
-    //     .data(viralSongs)
-    //     .encode(
-    //         vl.y().fieldN("Track").sort("-x").title("Track Title"),
-    //         vl.x().fieldQ("Value").title("Views / Streams"),
-    //         vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
-    //         vl.tooltip([
-    //             {field: "Artist", type: "nominal"},
-    //             {field: "Track", type: "nominal"},
-    //             {field: "TikTok Views", type: "quantitative"},
-    //             {field: "Spotify Streams", type: "quantitative"},
-    //             {field: "YouTube Views", type: "quantitative"}
-    //         ])
-    //     )
-    //     // .width(800)
-    //     .width("container")
-    //     .height(400)
-    //     .title("Top 20 Most Viral Songs on Tiktok Compared with Spotify Streams")
-    //     .toSpec();
 
 
     //visualization 3 NEW
@@ -405,8 +383,9 @@ fetchData().then(async (data) => {
             .data(bbno$FilteredTiktokSpotify)
             .encode(
                 vl.y().fieldN("Track").sort("-x"),
+                vl.yOffset().fieldN("Metric"),
                 vl.x().fieldQ("Value").title("Views / Streams"),
-                vl.color().fieldN("Metric").title("Platform").scale({scheme:"redblue"}),
+                vl.color().fieldN("Metric").title("Platform").scale({range:["#64ff61","#7cb5f7",]}),
                 vl.tooltip([
                     {field: "Artist", type: "nominal"},
                     {field: "Track", type: "nominal"},
@@ -418,8 +397,9 @@ fetchData().then(async (data) => {
             .data(hozierFilteredTiktokSpotify)
             .encode(
                 vl.y().fieldN("Track").sort("-x"),
+                   vl.yOffset().fieldN("Metric"),
                 vl.x().fieldQ("Value").title("Views / Streams"),
-                vl.color().fieldN("Metric").title("Platform").scale({scheme:"redblue"}),
+                vl.color().fieldN("Metric").title("Platform").scale({range:["#64ff61","#7cb5f7",]}),
                 vl.tooltip([
                     {field: "Artist", type: "nominal"},
                     {field: "Track", type: "nominal"},
@@ -431,8 +411,9 @@ fetchData().then(async (data) => {
             .data(sabrinaFilteredTiktokSpotify)
             .encode(
                 vl.y().fieldN("Track").sort("-x"),
+                vl.yOffset().fieldN("Metric"),
                 vl.x().fieldQ("Value").title("Views / Streams"),
-                vl.color().fieldN("Metric").title("Platform").scale({scheme:"redblue"}),
+                vl.color().fieldN("Metric").title("Platform").scale({range:["#64ff61","#7cb5f7",]}),
                 vl.tooltip([
                     {field: "Artist", type: "nominal"},
                     {field: "Track", type: "nominal"},
@@ -441,10 +422,38 @@ fetchData().then(async (data) => {
                 ])
             )
         )
-        // .width(800)
         .width("container")
         .height(400)
-        .title("Artist Comparisons")
+        .background("transparent")
+        .title({
+            text: "3 Artists Spotify Streams and TikTok Views Comparison",
+            fontSize: 24,
+            color:"#F3FACE",
+            offset: 15 //space between title and chart
+    })
+
+        .config({
+
+        axis: {
+            domainColor: '#F3FACE',
+            tickColor: '#F3FACE', 
+            labelColor: '#F3FACE', 
+            titleColor: '#F3FACE',
+            
+            labelFontSize: 16,
+            titleFontSize: 18,
+        },
+        legend: {
+            labelColor: '#F3FACE',
+            titleColor: '#F3FACE',
+        
+        },
+        header: {
+            labelColor: '#F3FACE',
+            titleColor: '#F3FACE'
+        }
+    })
+
         .toSpec();
 
 
