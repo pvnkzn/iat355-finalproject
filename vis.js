@@ -12,7 +12,7 @@ fetchData().then(async (data) => {
     const filteredSpotifySongsTiktokViews = data
         .filter(d => d["TikTok Views"])
         .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
-        .slice(0, 10);
+        .slice(0, 30);
 
     const vlSpec = vl
         .markCircle()
@@ -20,7 +20,7 @@ fetchData().then(async (data) => {
         .encode(
             vl.x().fieldQ("TikTok Views").title("TikTok Views"),
             vl.y().fieldQ("Spotify Streams"),
-            vl.color().fieldN("Track").legend(null),
+            vl.color().fieldN("Track"),
             vl.tooltip(
                 [
                     {field: "Track"},
@@ -28,7 +28,7 @@ fetchData().then(async (data) => {
                 ]
             )
         )
-        .title("Top 10 most popular Spotify Songs vs TikTok Views, with release date")
+        .title("Top 30 most popular Spotify Songs vs TikTok Views, with release date")
         // .width(600)
         .width("container")
         .height(500)
@@ -70,94 +70,25 @@ fetchData().then(async (data) => {
             }
         ]);
 
-    const viralSongsTiktok = data
-        .filter(d => d["TikTok Views"]
-        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
-        .slice(0, 10)
-        .flatMap(d => [
-            { 
-                Track: d["Track"], 
-                Artist: d["Artist"], 
-                Metric: "TikTok Views", 
-                Value: +d["TikTok Views"], 
-                "TikTok Views": +d["TikTok Views"], 
-                "Spotify Streams": +d["Spotify Streams"],
-                "YouTube Views": +d["YouTube Views"]
-            },
-        ]);
-
-    const viralSongsSpotify = data
-        .filter(d => d["TikTok Views"] && d["Spotify Streams"] && d["YouTube Views"])
-        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
-        .slice(0, 10)
-        .flatMap(d => [
-            { 
-                Track: d["Track"], 
-                Artist: d["Artist"], 
-                Metric: "Spotify Streams", 
-                Value: +d["Spotify Streams"], 
-                "TikTok Views": +d["TikTok Views"], 
-                "Spotify Streams": +d["Spotify Streams"],
-                "YouTube Views": +d["YouTube Views"]
-            },
-        ]);
-
-    const viralSongsYoutube = data
-        .filter(d => d["TikTok Views"] && d["Spotify Streams"] && d["YouTube Views"])
-        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
-        .slice(0, 10)
-        .flatMap(d => [
-            { 
-                Track: d["Track"], 
-                Artist: d["Artist"], 
-                Metric: "YouTube Views", 
-                Value: +d["YouTube Views"], 
-                "TikTok Views": +d["TikTok Views"], 
-                "Spotify Streams": +d["Spotify Streams"],
-                "YouTube Views": +d["YouTube Views"]
-            },
-        ]);
-
-    // const vlSpec2 = vl
-    //     .markBar()
-    //     .data(viralSongs)
-    //     .encode(
-    //         vl.y().fieldN("Track").sort("-x").title("Track Title"),
-    //         vl.x().fieldQ("Value").title("Views / Streams"),
-    //         vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
-    //         vl.tooltip([
-    //             {field: "Artist", type: "nominal"},
-    //             {field: "Track", type: "nominal"},
-    //             {field: "TikTok Views", type: "quantitative"},
-    //             {field: "Spotify Streams", type: "quantitative"},
-    //             {field: "YouTube Views", type: "quantitative"}
-    //         ])
-    //     )
-    //     // .width(800)
-    //     .width("container")
-    //     .height(400)
-    //     .title("Top 20 Most Viral Songs on Tiktok Compared with Spotify Streams")
-    //     .toSpec();
-
-    // new vis 2 tiktok
     const vlSpec2 = vl
         .markBar()
-        .background("transparent")
-        .data(viralSongsTiktok)
+        .data(viralSongs)
         .encode(
             vl.y().fieldN("Track").sort("-x").title("Track Title"),
             vl.x().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Metric").title("Platform").scale({range:["#7cb5f7",]}),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
             vl.tooltip([
                 {field: "Artist", type: "nominal"},
                 {field: "Track", type: "nominal"},
-                {field: "TikTok Views", type: "quantitative"}
+                {field: "TikTok Views", type: "quantitative"},
+                {field: "Spotify Streams", type: "quantitative"},
+                {field: "YouTube Views", type: "quantitative"}
             ])
         )
         // .width(800)
         .width("container")
         .height(400)
-        .title("Top 10 Most Viral Songs on Tiktok (with views)")
+        .title("Top 20 Most Viral Songs on Tiktok Compared with Spotify Streams")
         .toSpec();
 
 
