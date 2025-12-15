@@ -6,6 +6,8 @@ async function fetchData() {
 
 fetchData().then(async (data) => {
 
+    
+
     // visualization 1 NEW
     const filteredSpotifySongsTiktokViews = data
         .filter(d => d["TikTok Views"])
@@ -228,156 +230,208 @@ fetchData().then(async (data) => {
     // visualization 4 NEW
 
     const bbno$FilteredTiktok = bbno$
-        .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
-        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
-        .slice(0, 20)
-        .flatMap(d => [
+         .filter(d => d["TikTok Views"] && d["TikTok Likes"])
+      .sort((a, b) => d3.descending(a["TikTok Views"], b["TikTok Views"]))
+      .slice(0, 20)
+      .flatMap(d => [
         { 
           Track: d["Track"], 
           Artist: d["Artist"], 
           Metric: "TikTok Views", 
-          Value: +d["TikTok Views"], 
-          "TikTok Views": +d["TikTok Views"], 
-          "TikTok Posts": +d["TikTok Posts"],
-          "TikTok Likes": +d["TikTok Likes"]
+          Value: d["TikTok Views"], 
+          "TikTok Views": d["TikTok Views"], 
+          "TikTok Likes": d["TikTok Likes"]
         },
-        { 
-          Track: d["Track"], 
-          Artist: d["Artist"], 
-          Metric: "TikTok Posts", 
-          Value: +d["TikTok Posts"], 
-          "TikTok Views": +d["TikTok Views"], 
-          "TikTok Posts": +d["TikTok Posts"],
-          "TikTok Likes": +d["TikTok Likes"]
-        },
+        
         { 
           Track: d["Track"], 
           Artist: d["Artist"], 
           Metric: "TikTok Likes", 
-          Value: +d["TikTok Likes"], 
-          "TikTok Views": +d["TikTok Views"], 
-          "TikTok Posts": +d["TikTok Posts"],
-          "TikTok Likes": +d["TikTok Likes"]
+          Value: d["TikTok Likes"], 
+          "TikTok Views": d["TikTok Views"], 
+          "TikTok Posts": d["TikTok Posts"],
+          "TikTok Likes": d["TikTok Likes"]
         }
-    ])
+      ])
   
     const hozierFilteredTiktok = hozier
-        .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
-        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
-        .slice(0, 20)
-        .flatMap(d => [
+        .filter(d => d["TikTok Views"] && d["TikTok Likes"])
+      .sort((a, b) => d3.descending(a["TikTok Views"], b["TikTok Views"]))
+      .slice(0, 20)
+      .flatMap(d => [
         { 
           Track: d["Track"], 
           Artist: d["Artist"], 
           Metric: "TikTok Views", 
-          Value: +d["TikTok Views"], 
-          "TikTok Views": +d["TikTok Views"], 
-          "TikTok Posts": +d["TikTok Posts"],
-          "TikTok Likes": +d["TikTok Likes"]
-        },
-        { 
-          Track: d["Track"], 
-          Artist: d["Artist"], 
-          Metric: "TikTok Posts", 
-          Value: +d["TikTok Posts"], 
-          "TikTok Views": +d["TikTok Views"], 
-          "TikTok Posts": +d["TikTok Posts"],
-          "TikTok Likes": +d["TikTok Likes"]
+          Value: d["TikTok Views"], 
+          "TikTok Views": d["TikTok Views"], 
+          
+          "TikTok Likes": d["TikTok Likes"]
         },
         { 
           Track: d["Track"], 
           Artist: d["Artist"], 
           Metric: "TikTok Likes", 
-          Value: +d["TikTok Likes"], 
-          "TikTok Views": +d["TikTok Views"], 
-          "TikTok Posts": +d["TikTok Posts"],
-          "TikTok Likes": +d["TikTok Likes"]
+          Value: d["TikTok Likes"], 
+          "TikTok Views": d["TikTok Views"], 
+    
+          "TikTok Likes": d["TikTok Likes"]
         }
-    ])
+      ])
+   
         
     const sabrinaFilteredTiktok = sabrina
-        .filter(d => d["TikTok Views"] && d["TikTok Posts"] && d["TikTok Likes"])
-        .sort((a, b) => d3.descending(+a["TikTok Views"], +b["TikTok Views"]))
-        .slice(0, 20)
-        .flatMap(d => [
+         .filter(d => d["TikTok Views"] && d["TikTok Likes"])
+      .sort((a, b) => d3.descending(a["TikTok Views"], b["TikTok Views"]))
+      .slice(0, 20)
+      .flatMap(d => [
         { 
           Track: d["Track"], 
           Artist: d["Artist"], 
           Metric: "TikTok Views", 
-          Value: +d["TikTok Views"], 
-          "TikTok Views": +d["TikTok Views"], 
-          "TikTok Posts": +d["TikTok Posts"],
-          "TikTok Likes": +d["TikTok Likes"]
+          Value: d["TikTok Views"], 
+          "TikTok Views": d["TikTok Views"], 
+          "TikTok Likes": d["TikTok Likes"]
         },
-        { 
-          Track: d["Track"], 
-          Artist: d["Artist"], 
-          Metric: "TikTok Posts", 
-          Value: +d["TikTok Posts"], 
-          "TikTok Views": +d["TikTok Views"], 
-          "TikTok Posts": +d["TikTok Posts"],
-          "TikTok Likes": +d["TikTok Likes"]
-        },
+       
         { 
           Track: d["Track"], 
           Artist: d["Artist"], 
           Metric: "TikTok Likes", 
-          Value: +d["TikTok Likes"], 
-          "TikTok Views": +d["TikTok Views"], 
-          "TikTok Posts": +d["TikTok Posts"],
-          "TikTok Likes": +d["TikTok Likes"]
+          Value: d["TikTok Likes"], 
+          "TikTok Views": d["TikTok Views"], 
+          "TikTok Likes": d["TikTok Likes"]
         }
-    ])
+      ])
+  
 
     const vlSpec4 = vl
         .layer(
             vl.markBar()
             .data(bbno$FilteredTiktok)
             .encode(
-                vl.y().fieldN("Track").sort("-x"),
-                vl.x().fieldQ("Value").title("Views / Streams"),
-                vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
-                vl.tooltip([
-                    {field: "Artist", type: "nominal"},
-                    {field: "Track", type: "nominal"},
-                    {field: "TikTok Views", type: "quantitative"},
-                    {field: "TikTok Posts", type: "quantitative"},
-                    {field: "TikTok Likes", type: "quantitative"}
-                ])
-            ),
-            vl.markBar()
-            .data(hozierFilteredTiktok)
-            .encode(
-                vl.y().fieldN("Track").sort("-x"),
-                vl.x().fieldQ("Value").title("Views / Streams"),
-                vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
-                vl.tooltip([
-                    {field: "Artist", type: "nominal"},
-                    {field: "Track", type: "nominal"},
-                    {field: "TikTok Views", type: "quantitative"},
-                    {field: "TikTok Posts", type: "quantitative"},
-                    {field: "TikTok Likes", type: "quantitative"}
-                ])
-            ),
-            vl.markBar()
-            .data(sabrinaFilteredTiktok)
-            .encode(
-                vl.y().fieldN("Track").sort("-x"),
-                vl.x().fieldQ("Value").title("Views / Streams"),
-                vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
-                vl.tooltip([
-                    {field: "Artist", type: "nominal"},
-                    {field: "Track", type: "nominal"},
-                    {field: "TikTok Views", type: "quantitative"},
-                    {field: "TikTok Posts", type: "quantitative"},
-                    {field: "TikTok Likes", type: "quantitative"}
-                ])
-            )
+    vl.y().fieldN("Track").sort("-x"),
+    vl.yOffset().fieldN("Metric"),
+    vl.x().fieldQ("Value").title("Views / Streams"),
+    vl.color().fieldN("Metric").title("Platform").scale({range:["#ff26d0","#26f8ff"]}),
+    vl.tooltip([
+      {field: "Artist", type: "nominal"},
+      {field: "Track", type: "nominal"},
+      {field: "TikTok Views", type: "quantitative"},
+      {field: "TikTok Likes", type: "quantitative"}
+    ])
+  ),
+  vl.markBar()
+  .data(
+    hozier
+      .filter(d => d["TikTok Views"] && d["TikTok Likes"])
+      .sort((a, b) => d3.descending(a["TikTok Views"], b["TikTok Views"]))
+      .slice(0, 20)
+      .flatMap(d => [
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Views", 
+          Value: d["TikTok Views"], 
+          "TikTok Views": d["TikTok Views"], 
+          
+          "TikTok Likes": d["TikTok Likes"]
+        },
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Likes", 
+          Value: d["TikTok Likes"], 
+          "TikTok Views": d["TikTok Views"], 
+    
+          "TikTok Likes": d["TikTok Likes"]
+        }
+      ])
+  )
+  .encode(
+    vl.y().fieldN("Track").sort("-x"),
+    vl.yOffset().fieldN("Metric"),
+    vl.x().fieldQ("Value").title("Views / Streams"),
+    vl.color().fieldN("Metric").title("Platform").scale({range:["#ff26d0","#26f8ff"]}),
+    vl.tooltip([
+      {field: "Artist", type: "nominal"},
+      {field: "Track", type: "nominal"},
+      {field: "TikTok Views", type: "quantitative"},
+      {field: "TikTok Likes", type: "quantitative"}
+    ])
+  ),
+vl.markBar()
+.data(
+ sabrina
+      .filter(d => d["TikTok Views"] && d["TikTok Likes"])
+      .sort((a, b) => d3.descending(a["TikTok Views"], b["TikTok Views"]))
+      .slice(0, 20)
+      .flatMap(d => [
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Views", 
+          Value: d["TikTok Views"], 
+          "TikTok Views": d["TikTok Views"], 
+          "TikTok Likes": d["TikTok Likes"]
+        },
+       
+        { 
+          Track: d["Track"], 
+          Artist: d["Artist"], 
+          Metric: "TikTok Likes", 
+          Value: d["TikTok Likes"], 
+          "TikTok Views": d["TikTok Views"], 
+          "TikTok Likes": d["TikTok Likes"]
+        }
+      ])
+  )
+  .encode(
+    vl.y().fieldN("Track").sort("-x"),
+    vl.yOffset().fieldN("Metric"),
+    vl.x().fieldQ("Value").title("Views / Streams"),
+    vl.color().fieldN("Metric").title("Platform").scale({range:["#ff26d0","#26f8ff"]}),
+    vl.tooltip([
+      {field: "Artist", type: "nominal"},
+      {field: "Track", type: "nominal"},
+     {field: "TikTok Views", type: "quantitative"},
+      {field: "TikTok Likes", type: "quantitative"}
+    ])
+)
         )
-        // .width(800)
+        
+        .background("transparent")
         .width("container")
-        .height(400)
-        .title("Artist Comparisons")
+        .title({
+            text: "3 Artists TikTok Engagement",
+            fontSize: 24,
+            color:"#F3FACE",
+            offset: 15 //space between title and chart
+    })
+
+        .config({
+
+        axis: {
+            domainColor: '#F3FACE',
+            tickColor: '#F3FACE', 
+            labelColor: '#F3FACE', 
+            titleColor: '#F3FACE',
+            
+            labelFontSize: 16,
+            titleFontSize: 18,
+        },
+        legend: {
+            labelColor: '#F3FACE',
+            titleColor: '#F3FACE',
+        
+        },
+        header: {
+            labelColor: '#F3FACE',
+            titleColor: '#F3FACE'
+        }
+    })
+
+
         .toSpec();
 
     // visualization 5
@@ -415,6 +469,7 @@ fetchData().then(async (data) => {
           "YouTube Views": +d["YouTube Views"]
         }
     ])
+
 
    const vlSpec5 = vl
     .layer(
@@ -774,7 +829,12 @@ fetchData().then(async (data) => {
     render("#view6", vlSpec6);
     render("#view7", vlSpec7);
 
+
+    
+
 });
+
+
 
 async function render(viewID, spec) {
     const result = await vegaEmbed(viewID, spec);
