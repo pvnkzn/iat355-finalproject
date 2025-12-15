@@ -57,6 +57,10 @@ fetchData().then(async (data) => {
             header: {
                 labelColor: '#212121',
                 titleColor: '#212121',
+            },
+
+            view: {
+                stroke: '#212121'
             }
         })
         .toSpec();
@@ -152,7 +156,7 @@ fetchData().then(async (data) => {
         .encode(
             vl.y().fieldN("Track").sort("-x").title("Track Title"),
             vl.x().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Metric").title("Platform").scale({range:["#5BE3C3"]}),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#5be3c3"]}),
             vl.tooltip([
                 {field: "Artist", type: "nominal"},
                 {field: "Track", type: "nominal"},
