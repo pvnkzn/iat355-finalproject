@@ -424,8 +424,9 @@ fetchData().then(async (data) => {
                 vl.theta().fieldQ("Value").title("Views / Streams"),
                 vl.color().fieldN("Metric").scale({range:["#D8EA75","#5BE3C3","#EA7577",]}).legend(null), // Legend removed
                 vl.tooltip([
-                    {field: "Metric", type: "nominal"},
-                    {field: "Value", type: "quantitative", format: ",.2s"},
+                    {field: "Metric", type: "nominal", title: "Platform"},
+                    {field: "Value", type: "quantitative", format: ",.0f", title: "Streams/Views"
+                    },
                     {field: "percent_of_total", type: "quantitative", format: ".1%", title: "Percentage"} 
                 ])  
             ),
@@ -492,13 +493,15 @@ fetchData().then(async (data) => {
         { calculate: "datum.Metric + ' (' + format(datum.percent_of_total, '.1%') + ')'", as: "combined_label" }
     ])
     .data(bbno$FilteredPlatforms) 
+    
     .width("container")
-    .height(400)
+    .height(600)
+    
     .title({
         text: "bbno$ Platform Metrics",
         fontSize: 42,
         color:"#F3FACE",
-        offset: 55 //space between title and chart
+        offset: 0 //space between title and chart
     })
     .background("transparent")
     .toSpec();
@@ -540,24 +543,98 @@ fetchData().then(async (data) => {
     ])
 
     const vlSpec6 = vl
-        .markArc()
-        .data(hozierFilteredPlatforms)
+
+    .layer(
+
+        //layer 1 pie
+        vl.markArc({ outerRadius: 200})
+        
         .encode(
-            vl.theta().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
-            vl.tooltip([
-                {field: "Artist", type: "nominal"},
-                {field: "Track", type: "nominal"},
-                {field: "TikTok Views", type: "quantitative"},
-                {field: "Spotify Streams", type: "quantitative"},
-                {field: "YouTube Views", type: "quantitative"}
-            ])
+                vl.theta().fieldQ("Value").title("Views / Streams"),
+                vl.color().fieldN("Metric").scale({range:["#D8EA75","#5BE3C3","#EA7577",]}).legend(null), // Legend removed
+                vl.tooltip([
+                    {field: "Metric", type: "nominal", title: "Platform"},
+                    {field: "Value", type: "quantitative", format: ",.0f", title: "Streams/Views"},
+                    {field: "percent_of_total", type: "quantitative", format: ".1%", title: "Percentage"} 
+                ])  
+            ),
+
+             // layer 2: tiktok
+        vl.markText({
+            radius: 70,    
+            align: 'left', 
+            fontSize: 24,
+            dy: 300,         
+            dx: -70
+        })
+
+         .encode(
+            vl.theta().fieldQ("Value"),
+            vl.text().fieldN("combined_label"),
+            vl.color().fieldN("Metric").scale({range:["#D8EA75","#5BE3C3","#EA7577",]})
         )
-        // .width(800)
-        .width("container")
-        .height(400)
-        .title("Artist Comparisons")
-        .toSpec();
+        .transform([
+            vl.filter("datum.Metric === 'TikTok Views'") 
+        ]),
+        
+        // Layer 3: spotify
+        vl.markText({
+            radius: 180,    
+            align: 'left',  
+            fontSize: 24,
+            dx: -10,  
+            dy: -45
+        })
+        .encode(
+            vl.theta().fieldQ("Value"),
+            vl.text().fieldN("combined_label"),
+            vl.color().fieldN("Metric").scale({range:["#D8EA75","#5BE3C3","#EA7577",]})
+        )
+        .transform([
+            vl.filter("datum.Metric === 'Spotify Streams'") 
+        ]),
+        
+        // layer 4: Yyouytube label
+        vl.markText({
+            radius: 180,    
+            align: 'center', 
+            fontSize: 24,
+            dx: -135,
+            dy: -45 
+        })
+
+        .encode(
+            vl.theta().fieldQ("Value"),
+            vl.text().fieldN("combined_label"),
+            vl.color().fieldN("Metric").scale({range:["#D8EA75","#5BE3C3","#EA7577",]})
+        )
+        .transform([
+            vl.filter("datum.Metric === 'YouTube Views'") 
+        ])
+    )
+
+        
+         // Global Properties and Transforms Outside .layer()
+    .transform([
+        { aggregate: [{ op: "sum", field: "Value", as: "Value" }], groupby: ["Metric"] },
+        { window: [{ op: "sum", field: "Value", as: "Total" }], frame: [null, null] },
+        { calculate: "datum.Value / datum.Total", as: "percent_of_total" },
+        { calculate: "datum.Metric + ' (' + format(datum.percent_of_total, '.1%') + ')'", as: "combined_label" }
+    ])
+
+
+    .data(hozierFilteredPlatforms)    
+    .width("container")
+    .height(600)
+    
+    .title({
+        text: "Hozier Platform Metrics",
+        fontSize: 42,
+        color:"#F3FACE",
+        offset: 0 //space between title and chart
+    })
+    .background("transparent")
+    .toSpec();
 
     // visualization 7
 
@@ -596,24 +673,97 @@ fetchData().then(async (data) => {
     ])
 
     const vlSpec7 = vl
-        .markArc()
-        .data(sabrinaFilteredPlatforms)
+       .layer(
+
+        //layer 1 pie
+        vl.markArc({ outerRadius: 200})
+        
         .encode(
-            vl.theta().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Metric").title("Platform").scale({range:["#44a832","#3432a8","#a83e32",]}),
-            vl.tooltip([
-                {field: "Artist", type: "nominal"},
-                {field: "Track", type: "nominal"},
-                {field: "TikTok Views", type: "quantitative"},
-                {field: "Spotify Streams", type: "quantitative"},
-                {field: "YouTube Views", type: "quantitative"}
-            ])
+                vl.theta().fieldQ("Value").title("Views / Streams"),
+                vl.color().fieldN("Metric").scale({range:["#D8EA75","#5BE3C3","#EA7577",]}).legend(null), // Legend removed
+                vl.tooltip([
+                    {field: "Metric", type: "nominal", title: "Platform"},
+                    {field: "Value", type: "quantitative", format: ",.0f", title: "Streams/Views"},
+                    {field: "percent_of_total", type: "quantitative", format: ".1%", title: "Percentage"} 
+                ])  
+            ),
+
+             // layer 2: tiktok
+        vl.markText({
+            radius: 70,    
+            align: 'left', 
+            fontSize: 24,
+            dy: 300,         
+            dx: -70
+        })
+
+         .encode(
+            vl.theta().fieldQ("Value"),
+            vl.text().fieldN("combined_label"),
+            vl.color().fieldN("Metric").scale({range:["#D8EA75","#5BE3C3","#EA7577",]})
         )
-        // .width(800)
-        .width("container")
-        .height(400)
-        .title("Artist Comparisons")
-        .toSpec();
+        .transform([
+            vl.filter("datum.Metric === 'TikTok Views'") 
+        ]),
+        
+        // Layer 3: spotify
+        vl.markText({
+            radius: 180,    
+            align: 'left',  
+            fontSize: 24,
+            dx: -10,  
+            dy: -45
+        })
+        .encode(
+            vl.theta().fieldQ("Value"),
+            vl.text().fieldN("combined_label"),
+            vl.color().fieldN("Metric").scale({range:["#D8EA75","#5BE3C3","#EA7577",]})
+        )
+        .transform([
+            vl.filter("datum.Metric === 'Spotify Streams'") 
+        ]),
+        
+        // layer 4: Yyouytube label
+        vl.markText({
+            radius: 180,    
+            align: 'center', 
+            fontSize: 24,
+            dx: -135,
+            dy: -45 
+        })
+
+        .encode(
+            vl.theta().fieldQ("Value"),
+            vl.text().fieldN("combined_label"),
+            vl.color().fieldN("Metric").scale({range:["#D8EA75","#5BE3C3","#EA7577",]})
+        )
+        .transform([
+            vl.filter("datum.Metric === 'YouTube Views'") 
+        ])
+    )
+
+        
+         // Global Properties and Transforms Outside .layer()
+    .transform([
+        { aggregate: [{ op: "sum", field: "Value", as: "Value" }], groupby: ["Metric"] },
+        { window: [{ op: "sum", field: "Value", as: "Total" }], frame: [null, null] },
+        { calculate: "datum.Value / datum.Total", as: "percent_of_total" },
+        { calculate: "datum.Metric + ' (' + format(datum.percent_of_total, '.1%') + ')'", as: "combined_label" }
+    ])
+
+
+    .data(sabrinaFilteredPlatforms)    
+    .width("container")
+    .height(600)
+    
+    .title({
+        text: ["Sabrina Carpenter", "Platform Metrics"],
+        fontSize: 42,
+        color:"#F3FACE",
+        offset: 0 //space between title and chart
+    })
+    .background("transparent")
+    .toSpec();
 
     //render
     render("#view", vlSpec);
