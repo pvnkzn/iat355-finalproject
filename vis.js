@@ -193,6 +193,9 @@ fetchData().then(async (data) => {
             header: {
                 labelColor: '#212121',
                 titleColor: '#212121',
+            },
+            view: {
+                stroke: '#212121'
             }
         })
         .toSpec();
@@ -241,6 +244,9 @@ fetchData().then(async (data) => {
             header: {
                 labelColor: '#212121',
                 titleColor: '#212121',
+            },
+            view: {
+                stroke: '#212121'
             }
         })
         .toSpec();
@@ -289,6 +295,9 @@ fetchData().then(async (data) => {
             header: {
                 labelColor: '#212121',
                 titleColor: '#212121',
+            },
+            view: {
+                stroke: '#212121'
             }
         })
         .toSpec();
