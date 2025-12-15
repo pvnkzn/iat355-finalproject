@@ -41,9 +41,22 @@ fetchData().then(async (data) => {
 
         .config({
             axis: {
+                domainColor: '#212121',
+                tickColor: '#212121', 
+                labelColor: '#212121', 
+                titleColor: '#212121',
                 labelFontSize: 16,
                 titleFontSize: 18,
             },
+            legend: {
+                labelColor: '#212121',
+                titleColor: '#212121',
+        
+        },
+            header: {
+                labelColor: '#212121',
+                titleColor: '#212121',
+            }
         })
         .toSpec();
         
