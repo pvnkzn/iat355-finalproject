@@ -169,7 +169,7 @@ img {
     color: black !important;
 }
 
-#view, #view2, #view3, #view4, #view5, #view6, #view7 {
+#view, #view2, #view3, #view4, #view5, #view6, #view7, #view8, #view9 {
         width: 100vw;
         /* padding-left: 0.5rem; */
     }
@@ -475,7 +475,7 @@ footer {
         padding-right: 1rem;
     }
 
-    #view, #view2, #view3, #view4, #view5, #view6, #view7 {
+    #view, #view2, #view3, #view4, #view5, #view6, #view7, #view8, #view9 {
         width: 90vw;
         padding-left: 0.5rem;
     }
@@ -547,7 +547,7 @@ footer {
         padding-right: 1rem;
     }
 
-    #view, #view2, #view3, #view4, #view5, #view6, #view7 {
+    #view, #view2, #view3, #view4, #view5, #view6, #view7, #view8, #view9 {
         /* max-width: 100vw; */
         width: 90vw;
         padding-left: 0.5rem;
