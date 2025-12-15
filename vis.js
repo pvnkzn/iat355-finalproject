@@ -37,15 +37,14 @@ fetchData().then(async (data) => {
             fontSize: 24,
             // color:"#F3FACE",
             offset: 15 //space between title and chart
-    })
+        })
 
         .config({
-
-        axis: {
-            labelFontSize: 16,
-            titleFontSize: 18,
-        },
-        
+            axis: {
+                labelFontSize: 16,
+                titleFontSize: 18,
+            },
+        })
         .toSpec();
         
 
