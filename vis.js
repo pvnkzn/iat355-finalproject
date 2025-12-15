@@ -564,8 +564,8 @@ fetchData().then(async (data) => {
             radius: 70,    
             align: 'left', 
             fontSize: 24,
-            dy: 300,         
-            dx: -70
+            dy: 250,         
+            dx: -360
         })
 
          .encode(
@@ -582,8 +582,8 @@ fetchData().then(async (data) => {
             radius: 180,    
             align: 'left',  
             fontSize: 24,
-            dx: -10,  
-            dy: -45
+            dx: 40,  
+            dy: 70
         })
         .encode(
             vl.theta().fieldQ("Value"),
@@ -599,8 +599,8 @@ fetchData().then(async (data) => {
             radius: 180,    
             align: 'center', 
             fontSize: 24,
-            dx: -135,
-            dy: -45 
+            dx: -420,
+            dy: -0 
         })
 
         .encode(
@@ -693,8 +693,8 @@ fetchData().then(async (data) => {
             radius: 70,    
             align: 'left', 
             fontSize: 24,
-            dy: 300,         
-            dx: -70
+            dy: 200,         
+            dx: -50
         })
 
          .encode(
@@ -711,8 +711,8 @@ fetchData().then(async (data) => {
             radius: 180,    
             align: 'left',  
             fontSize: 24,
-            dx: -10,  
-            dy: -45
+            dx: -113,  
+            dy: -230
         })
         .encode(
             vl.theta().fieldQ("Value"),
@@ -728,8 +728,8 @@ fetchData().then(async (data) => {
             radius: 180,    
             align: 'center', 
             fontSize: 24,
-            dx: -135,
-            dy: -45 
+            dx: -180,
+            dy: -55 
         })
 
         .encode(
