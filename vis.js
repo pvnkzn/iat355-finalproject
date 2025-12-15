@@ -152,7 +152,7 @@ fetchData().then(async (data) => {
         .encode(
             vl.y().fieldN("Track").sort("-x").title("Track Title"),
             vl.x().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Metric").title("Platform").scale({range:["#7cb5f7"]}),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#d8ea75"]}),
             vl.tooltip([
                 {field: "Artist", type: "nominal"},
                 {field: "Track", type: "nominal"},
@@ -200,7 +200,7 @@ fetchData().then(async (data) => {
         .encode(
             vl.y().fieldN("Track").sort("-x").title("Track Title"),
             vl.x().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Metric").title("Platform").scale({range:["#64ff61"]}),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#3b8c3a"]}),
             vl.tooltip([
                 {field: "Artist", type: "nominal"},
                 {field: "Track", type: "nominal"},
@@ -248,7 +248,7 @@ fetchData().then(async (data) => {
         .encode(
             vl.y().fieldN("Track").sort("-x").title("Track Title"),
             vl.x().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Metric").title("Platform").scale({range:["#ff2626"]}),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#EA7577"]}),
             vl.tooltip([
                 {field: "Artist", type: "nominal"},
                 {field: "Track", type: "nominal"},
@@ -385,7 +385,7 @@ fetchData().then(async (data) => {
                 vl.y().fieldN("Track").sort("-x"),
                 vl.yOffset().fieldN("Metric"),
                 vl.x().fieldQ("Value").title("Views / Streams"),
-                vl.color().fieldN("Metric").title("Platform").scale({range:["#64ff61","#7cb5f7",]}),
+                vl.color().fieldN("Metric").title("Platform").scale({range:["#d8ea75","#5BE3C3",]}),
                 vl.tooltip([
                     {field: "Artist", type: "nominal"},
                     {field: "Track", type: "nominal"},
@@ -399,7 +399,7 @@ fetchData().then(async (data) => {
                 vl.y().fieldN("Track").sort("-x"),
                    vl.yOffset().fieldN("Metric"),
                 vl.x().fieldQ("Value").title("Views / Streams"),
-                vl.color().fieldN("Metric").title("Platform").scale({range:["#64ff61","#7cb5f7",]}),
+                vl.color().fieldN("Metric").title("Platform").scale({range:["#d8ea75","#5BE3C3",]}),
                 vl.tooltip([
                     {field: "Artist", type: "nominal"},
                     {field: "Track", type: "nominal"},
@@ -413,7 +413,7 @@ fetchData().then(async (data) => {
                 vl.y().fieldN("Track").sort("-x"),
                 vl.yOffset().fieldN("Metric"),
                 vl.x().fieldQ("Value").title("Views / Streams"),
-                vl.color().fieldN("Metric").title("Platform").scale({range:["#64ff61","#7cb5f7",]}),
+                vl.color().fieldN("Metric").title("Platform").scale({range:["#d8ea75","#5BE3C3",]}),
                 vl.tooltip([
                     {field: "Artist", type: "nominal"},
                     {field: "Track", type: "nominal"},
