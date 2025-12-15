@@ -194,6 +194,55 @@ fetchData().then(async (data) => {
         })
         .toSpec();
 
+    const vlSpec8 = vl
+        .markBar()
+        .background("transparent")
+        .data(viralSongsSpotify)
+        .encode(
+            vl.y().fieldN("Track").sort("-x").title("Track Title"),
+            vl.x().fieldQ("Value").title("Views / Streams"),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#64ff61"]}),
+            vl.tooltip([
+                {field: "Artist", type: "nominal"},
+                {field: "Track", type: "nominal"},
+                // {field: "TikTok Views", type: "quantitative"},
+                {field: "Spotify Streams", type: "quantitative"},
+                // {field: "YouTube Views", type: "quantitative"}
+            ])
+        )
+        // .width(800)
+        .width("container")
+        .height(400)
+        // .title("Top 20 Most Viral Songs on Tiktok Compared with Spotify Streams")
+        .title({
+            text: "Top 10 Most Viral Songs on Tiktok (with Spotify Streams)",
+            fontSize: 24,
+            color:"#212121",
+            offset: 15 //space between title and chart
+        })
+
+        .config({
+            axis: {
+                domainColor: '#212121',
+                tickColor: '#212121', 
+                labelColor: '#212121', 
+                titleColor: '#212121',
+                gridColor: '#212121',
+                labelFontSize: 16,
+                titleFontSize: 18,
+            },
+            legend: {
+                labelColor: '#212121',
+                titleColor: '#212121',
+        
+        },
+            header: {
+                labelColor: '#212121',
+                titleColor: '#212121',
+            }
+        })
+        .toSpec();
+
     
 
     // const vlSpec2 = vl
@@ -949,6 +998,8 @@ vl.markBar()
     //render
     render("#view", vlSpec);
     render("#view2", vlSpec2);
+    render("#view8", vlSpec8);
+    render("#view9", vlSpec9);
     render("#view3", vlSpec3);
     render("#view4", vlSpec4);
     render("#view5", vlSpec5);
