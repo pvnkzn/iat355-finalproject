@@ -152,7 +152,7 @@ fetchData().then(async (data) => {
         .encode(
             vl.y().fieldN("Track").sort("-x").title("Track Title"),
             vl.x().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Metric").title("Platform").scale({range:["#d8ea75"]}),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#5BE3C3"]}),
             vl.tooltip([
                 {field: "Artist", type: "nominal"},
                 {field: "Track", type: "nominal"},
@@ -200,7 +200,7 @@ fetchData().then(async (data) => {
         .encode(
             vl.y().fieldN("Track").sort("-x").title("Track Title"),
             vl.x().fieldQ("Value").title("Views / Streams"),
-            vl.color().fieldN("Metric").title("Platform").scale({range:["#3b8c3a"]}),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#599e65"]}),
             vl.tooltip([
                 {field: "Artist", type: "nominal"},
                 {field: "Track", type: "nominal"},
