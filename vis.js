@@ -164,7 +164,6 @@ fetchData().then(async (data) => {
         // .width(800)
         .width("container")
         .height(400)
-        // .title("Top 20 Most Viral Songs on Tiktok Compared with Spotify Streams")
         .title({
             text: "Top 10 Most Viral Songs on Tiktok (with views)",
             fontSize: 24,
@@ -213,9 +212,56 @@ fetchData().then(async (data) => {
         // .width(800)
         .width("container")
         .height(400)
-        // .title("Top 20 Most Viral Songs on Tiktok Compared with Spotify Streams")
         .title({
             text: "Top 10 Most Viral Songs on Tiktok (with Spotify Streams)",
+            fontSize: 24,
+            color:"#212121",
+            offset: 15 //space between title and chart
+        })
+
+        .config({
+            axis: {
+                domainColor: '#212121',
+                tickColor: '#212121', 
+                labelColor: '#212121', 
+                titleColor: '#212121',
+                gridColor: '#212121',
+                labelFontSize: 16,
+                titleFontSize: 18,
+            },
+            legend: {
+                labelColor: '#212121',
+                titleColor: '#212121',
+        
+        },
+            header: {
+                labelColor: '#212121',
+                titleColor: '#212121',
+            }
+        })
+        .toSpec();
+
+    const vlSpec9 = vl
+        .markBar()
+        .background("transparent")
+        .data(viralSongsYoutube)
+        .encode(
+            vl.y().fieldN("Track").sort("-x").title("Track Title"),
+            vl.x().fieldQ("Value").title("Views / Streams"),
+            vl.color().fieldN("Metric").title("Platform").scale({range:["#ff2626"]}),
+            vl.tooltip([
+                {field: "Artist", type: "nominal"},
+                {field: "Track", type: "nominal"},
+                // {field: "TikTok Views", type: "quantitative"},
+                // {field: "Spotify Streams", type: "quantitative"},
+                {field: "YouTube Views", type: "quantitative"}
+            ])
+        )
+        // .width(800)
+        .width("container")
+        .height(400)
+        .title({
+            text: "Top 10 Most Viral Songs on Tiktok (with YouTube Views)",
             fontSize: 24,
             color:"#212121",
             offset: 15 //space between title and chart
